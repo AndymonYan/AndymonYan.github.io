@@ -6,22 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>剑指offer面试题22 | Andymon的二点五次元</title>
+  <title>剑值offer面试题23以及链表题相关的扩展 | Andymon的二点五次元</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题目要求：获得链表的倒数第k个节点（扩展题，找出链表的中间节点,找出链表是否有环，找出链表环的入口）编程语言：Java 思考：这题看上去很简单，无非是遍历获得第length-k个，但是需要考虑代码的鲁棒性">
+  <meta name="description" content="题目要求：找出链表的环的入口节点，没有的话返回空编程语言：Java 思考：这些都是快慢指针相关的题目，下面写一些常见的几种题型">
 <meta name="keywords" content="编程题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指offer面试题22">
-<meta property="og:url" content="http://yoursite.com/2019/06/26/剑指offer面试题22/index.html">
+<meta property="og:title" content="剑值offer面试题23以及链表题相关的扩展">
+<meta property="og:url" content="http://yoursite.com/2019/06/26/剑值offer面试题23以及链表题相关的扩展/index.html">
 <meta property="og:site_name" content="Andymon的二点五次元">
-<meta property="og:description" content="题目要求：获得链表的倒数第k个节点（扩展题，找出链表的中间节点,找出链表是否有环，找出链表环的入口）编程语言：Java 思考：这题看上去很简单，无非是遍历获得第length-k个，但是需要考虑代码的鲁棒性">
+<meta property="og:description" content="题目要求：找出链表的环的入口节点，没有的话返回空编程语言：Java 思考：这些都是快慢指针相关的题目，下面写一些常见的几种题型">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190626013318.png">
-<meta property="og:updated_time" content="2019-06-26T07:33:04.147Z">
+<meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190626010133.png">
+<meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/%E9%93%BE%E8%A1%A8%E7%8E%AF.png">
+<meta property="og:updated_time" content="2019-06-26T08:50:58.178Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="剑指offer面试题22">
-<meta name="twitter:description" content="题目要求：获得链表的倒数第k个节点（扩展题，找出链表的中间节点,找出链表是否有环，找出链表环的入口）编程语言：Java 思考：这题看上去很简单，无非是遍历获得第length-k个，但是需要考虑代码的鲁棒性">
-<meta name="twitter:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190626013318.png">
+<meta name="twitter:title" content="剑值offer面试题23以及链表题相关的扩展">
+<meta name="twitter:description" content="题目要求：找出链表的环的入口节点，没有的话返回空编程语言：Java 思考：这些都是快慢指针相关的题目，下面写一些常见的几种题型">
+<meta name="twitter:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190626010133.png">
   
     <link rel="alternative" href="/atom.xml" title="Andymon的二点五次元" type="application/atom+xml">
   
@@ -174,38 +175,43 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-剑指offer面试题22" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-剑值offer面试题23以及链表题相关的扩展" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      剑指offer面试题22
+      剑值offer面试题23以及链表题相关的扩展
     </h1>
   
 
         
-        <a href="/2019/06/26/剑指offer面试题22/" class="archive-article-date">
-  	<time datetime="2019-06-26T06:33:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-26</time>
+        <a href="/2019/06/26/剑值offer面试题23以及链表题相关的扩展/" class="archive-article-date">
+  	<time datetime="2019-06-26T07:34:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>题目要求：获得链表的倒数第k个节点（扩展题，找出链表的中间节点,找出链表是否有环，找出链表环的入口）<br>编程语言：Java</p>
-<p>思考：这题看上去很简单，无非是遍历获得第length-k个，但是需要考虑代码的鲁棒性</p>
-<p><img src="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190626013318.png" alt></p>
+        <p>题目要求：找出链表的环的入口节点，没有的话返回空<br>编程语言：Java</p>
+<p>思考：这些都是快慢指针相关的题目，下面写一些常见的几种题型</p>
+<img src="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190626010133.png" width="35%" height="35%" align="center">
+
 <a id="more"></a>
 
-<h3 id="思路：需要注意的点在下面会列举出来"><a href="#思路：需要注意的点在下面会列举出来" class="headerlink" title="思路：需要注意的点在下面会列举出来"></a>思路：需要注意的点在下面会列举出来</h3><ol>
-<li>如果链表为空，返回空</li>
-<li>如果k小于0，返回空</li>
-<li>如果k大于链表长度，返回空</li>
+<h3 id="题目一：找出链表的中间节点"><a href="#题目一：找出链表的中间节点" class="headerlink" title="题目一：找出链表的中间节点"></a>题目一：找出链表的中间节点</h3><h4 id="思路：用fast和slow两个指针指向链表头，然后fast指针一次移动两个单位，slow指针一次移动一个单位，最终fast遍历结束，slow遍历刚好一半，代码如下："><a href="#思路：用fast和slow两个指针指向链表头，然后fast指针一次移动两个单位，slow指针一次移动一个单位，最终fast遍历结束，slow遍历刚好一半，代码如下：" class="headerlink" title="思路：用fast和slow两个指针指向链表头，然后fast指针一次移动两个单位，slow指针一次移动一个单位，最终fast遍历结束，slow遍历刚好一半，代码如下："></a>思路：用fast和slow两个指针指向链表头，然后fast指针一次移动两个单位，slow指针一次移动一个单位，最终fast遍历结束，slow遍历刚好一半，代码如下：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">findMiddleNode</span><span class="params">(ListNode head)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="keyword">null</span>||head.next==<span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        ListNode fast = head;</span><br><span class="line">        ListNode slow = head;</span><br><span class="line">        <span class="keyword">while</span>(fast.next!=<span class="keyword">null</span>&amp;&amp;fast.next.next!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            fast = fast.next.next;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> slow;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="题目二：找出一个链表是否有环"><a href="#题目二：找出一个链表是否有环" class="headerlink" title="题目二：找出一个链表是否有环"></a>题目二：找出一个链表是否有环</h3><p><img src="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/%E9%93%BE%E8%A1%A8%E7%8E%AF.png" alt></p>
+<h4 id="思路：在上面的示意图中，我们可以做一个设想，如果快指针每次移动两格，慢指针每次移动一格，当快指针移动到9时-1-3-5-7-9-，慢指针移动到5-1-2-3-4-5-然后快指针到5-慢指针到6，快指针和慢指针最后都在7相遇。其实这个和人再操场上跑步一样，只要两个人速度不一样，那么肯定会在圈中的某个地方遇到，代码如下："><a href="#思路：在上面的示意图中，我们可以做一个设想，如果快指针每次移动两格，慢指针每次移动一格，当快指针移动到9时-1-3-5-7-9-，慢指针移动到5-1-2-3-4-5-然后快指针到5-慢指针到6，快指针和慢指针最后都在7相遇。其实这个和人再操场上跑步一样，只要两个人速度不一样，那么肯定会在圈中的某个地方遇到，代码如下：" class="headerlink" title="思路：在上面的示意图中，我们可以做一个设想，如果快指针每次移动两格，慢指针每次移动一格，当快指针移动到9时(1-3-5-7-9)，慢指针移动到5(1-2-3-4-5),然后快指针到5,慢指针到6，快指针和慢指针最后都在7相遇。其实这个和人再操场上跑步一样，只要两个人速度不一样，那么肯定会在圈中的某个地方遇到，代码如下："></a>思路：在上面的示意图中，我们可以做一个设想，如果快指针每次移动两格，慢指针每次移动一格，当快指针移动到9时(1-3-5-7-9)，慢指针移动到5(1-2-3-4-5),然后快指针到5,慢指针到6，快指针和慢指针最后都在7相遇。其实这个和人再操场上跑步一样，只要两个人速度不一样，那么肯定会在圈中的某个地方遇到，代码如下：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">ifCircle</span><span class="params">(ListNode head)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="keyword">null</span>||head.next==<span class="keyword">null</span>||head.next.next==<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;<span class="comment">//这里是为了使第一次循环能跑出来，不然如果head.next.next为空的话，do中的第一个循环就要报空指针了</span></span><br><span class="line">        &#125;</span><br><span class="line">        ListNode fast = head;</span><br><span class="line">        ListNode slow = head;</span><br><span class="line">        <span class="keyword">do</span>&#123;</span><br><span class="line">            fast = fast.next.next;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">            <span class="keyword">if</span>(fast == slow)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">while</span> (fast.next!=<span class="keyword">null</span>&amp;&amp;fast.next.next!=<span class="keyword">null</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="题目三：找出环的入口"><a href="#题目三：找出环的入口" class="headerlink" title="题目三：找出环的入口"></a>题目三：找出环的入口</h3><h4 id="思路：正如上面的图，入口为4，那么应该怎么去找出来呢？假设环的长度为n，非环的长度为m，那么链表的总长度为m-n-我们在题目二中证明了链表有环，只需要将慢指针重新走一圈，回到原点的话，就找到了环的长度n。然后重新从链表的头部开始，a指针先走n，b指针在头部不动。然后a、b两个指针同时向前走，当两个指针碰头的时候，就是入口了。因为此时刚好a走了m-n，b走了m。"><a href="#思路：正如上面的图，入口为4，那么应该怎么去找出来呢？假设环的长度为n，非环的长度为m，那么链表的总长度为m-n-我们在题目二中证明了链表有环，只需要将慢指针重新走一圈，回到原点的话，就找到了环的长度n。然后重新从链表的头部开始，a指针先走n，b指针在头部不动。然后a、b两个指针同时向前走，当两个指针碰头的时候，就是入口了。因为此时刚好a走了m-n，b走了m。" class="headerlink" title="思路：正如上面的图，入口为4，那么应该怎么去找出来呢？假设环的长度为n，非环的长度为m，那么链表的总长度为m+n.我们在题目二中证明了链表有环，只需要将慢指针重新走一圈，回到原点的话，就找到了环的长度n。然后重新从链表的头部开始，a指针先走n，b指针在头部不动。然后a、b两个指针同时向前走，当两个指针碰头的时候，就是入口了。因为此时刚好a走了m+n，b走了m。"></a>思路：正如上面的图，入口为4，那么应该怎么去找出来呢？假设环的长度为n，非环的长度为m，那么链表的总长度为m+n.我们在题目二中证明了链表有环，只需要将慢指针重新走一圈，回到原点的话，就找到了环的长度n。然后重新从链表的头部开始，a指针先走n，b指针在头部不动。然后a、b两个指针同时向前走，当两个指针碰头的时候，就是入口了。因为此时刚好a走了m+n，b走了m。</h4><ol>
+<li>算出环长度为6</li>
+<li>a指针先走6步，到达7</li>
+<li>b指针开始和a指针一起走，当b走了三格到达4，a也回到了4</li>
 </ol>
-<p>其实这题还是很简单的哈哈，一般链表的题难度都不会太大，毕竟不涉及排序,直接上代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">findKthToTail</span><span class="params">(ListNode head,<span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">       ListNode p = head;</span><br><span class="line">       <span class="keyword">if</span>(head==<span class="keyword">null</span>||k&lt;<span class="number">0</span>)&#123;<span class="comment">//注意这里的判断</span></span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">while</span>(head!=<span class="keyword">null</span>)&#123;</span><br><span class="line">           head = head.next;</span><br><span class="line">           len++;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">if</span>(len&lt;k)&#123;<span class="comment">//还有这里的判断</span></span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;len-k ; i++) &#123;</span><br><span class="line">           p = p.next;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> p;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">EntryNodeOfLoop</span><span class="params">(ListNode pHead)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(pHead==<span class="keyword">null</span>||pHead.next==<span class="keyword">null</span>||pHead.next.next==<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode fast = pHead;</span><br><span class="line">        ListNode slow = pHead;</span><br><span class="line">        <span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">do</span>&#123;</span><br><span class="line">            fast = fast.next.next;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">            <span class="keyword">if</span>(fast == slow)&#123;</span><br><span class="line">                ListNode tmp = slow;</span><br><span class="line">                <span class="keyword">while</span>(tmp.next!=slow)&#123;</span><br><span class="line">                    tmp = tmp.next;</span><br><span class="line">                    n++;<span class="comment">//这里循环条件是tmp.next==slow，所以n少加了一次，环的真实长度为n+1</span></span><br><span class="line">                    <span class="keyword">if</span>(tmp.next==slow)&#123;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">while</span> (fast.next!=<span class="keyword">null</span>&amp;&amp;fast.next.next!=<span class="keyword">null</span>);</span><br><span class="line"> <span class="comment">//算出了环的长度后，然后找出入口即可</span></span><br><span class="line">        ListNode a = pHead;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n+<span class="number">1</span>; i++) &#123;</span><br><span class="line">            a = a.next;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode b = pHead;</span><br><span class="line">        <span class="keyword">while</span>(a!=b)&#123;</span><br><span class="line">            a = a.next;</span><br><span class="line">            b = b.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -297,7 +303,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/26/剑指offer面试题22/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/26/剑值offer面试题23以及链表题相关的扩展/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -311,18 +317,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/06/26/剑值offer面试题23以及链表题相关的扩展/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          剑值offer面试题23以及链表题相关的扩展
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/06/26/剑指offer面试题21/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">剑指offer面试题21</div>
+    <a href="/2019/06/26/剑指offer面试题22/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">剑指offer面试题22</div>
       <i class="icon-circle-right"></i>
     </a>
   
