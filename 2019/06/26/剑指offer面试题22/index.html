@@ -8,15 +8,20 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>剑指offer面试题22 | Andymon的二点五次元</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="编程题">
+  <meta name="description" content="题目要求：获得链表的倒数第k个节点（扩展题，找出链表的中间节点,找出链表是否有环，找出链表环的入口）编程语言：Java 思考：这题看上去很简单，无非是遍历获得第lennth-k个，但是需要考虑代码的鲁棒性">
+<meta name="keywords" content="编程题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="剑指offer面试题22">
 <meta property="og:url" content="http://yoursite.com/2019/06/26/剑指offer面试题22/index.html">
 <meta property="og:site_name" content="Andymon的二点五次元">
+<meta property="og:description" content="题目要求：获得链表的倒数第k个节点（扩展题，找出链表的中间节点,找出链表是否有环，找出链表环的入口）编程语言：Java 思考：这题看上去很简单，无非是遍历获得第lennth-k个，但是需要考虑代码的鲁棒性">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-26T06:34:39.272Z">
+<meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190626013318.png">
+<meta property="og:updated_time" content="2019-06-26T07:27:47.725Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="剑指offer面试题22">
+<meta name="twitter:description" content="题目要求：获得链表的倒数第k个节点（扩展题，找出链表的中间节点,找出链表是否有环，找出链表环的入口）编程语言：Java 思考：这题看上去很简单，无非是遍历获得第lennth-k个，但是需要考虑代码的鲁棒性">
+<meta name="twitter:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190626013318.png">
   
     <link rel="alternative" href="/atom.xml" title="Andymon的二点五次元" type="application/atom+xml">
   
@@ -189,7 +194,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>题目要求：获得链表的倒数第k个节点（扩展题，找出链表的中间节点,找出链表是否有环，找出链表环的入口）<br>编程语言：Java</p>
+<p>思考：这题看上去很简单，无非是遍历获得第lennth-k个，但是需要考虑代码的鲁棒性</p>
+<p><img src="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190626013318.png" alt></p>
+<a id="more"></a>
+
+<h3 id="思路：需要注意的点在下面会列举出来"><a href="#思路：需要注意的点在下面会列举出来" class="headerlink" title="思路：需要注意的点在下面会列举出来"></a>思路：需要注意的点在下面会列举出来</h3><ol>
+<li>如果链表为空，返回空</li>
+<li>如果k小于0，返回空</li>
+<li>如果k大于链表长度，返回空</li>
+</ol>
+<p>其实这题还是很简单的哈哈，一般链表的题难度都不会太大，毕竟不涉及排序,直接上代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">findKthToTail</span><span class="params">(ListNode head,<span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">       ListNode p = head;</span><br><span class="line">       <span class="keyword">if</span>(head==<span class="keyword">null</span>||k&lt;<span class="number">0</span>)&#123;<span class="comment">//注意这里的判断</span></span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">while</span>(head!=<span class="keyword">null</span>)&#123;</span><br><span class="line">           head = head.next;</span><br><span class="line">           len++;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">if</span>(len&lt;k)&#123;<span class="comment">//还有这里的判断</span></span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;len-k ; i++) &#123;</span><br><span class="line">           p = p.next;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> p;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
       
 
       
@@ -456,15 +474,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">二次元</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">碎碎念</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
