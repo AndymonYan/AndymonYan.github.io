@@ -17,7 +17,7 @@
 <meta property="og:description" content="题目要求：将一个整数数组的奇数放到前面，偶数放到后面，而且奇数偶数原来的相对顺序不变编程语言：Java 思考：这题原本是剑指这本书上面的，但是条件不同，剑指条件没有顺序不变，那么就不能用书上的那种前后指针遇到奇数偶数就相互对调的方法，当然稍微改进下还是可以的">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190626013536.png">
-<meta property="og:updated_time" content="2019-06-26T06:21:10.500Z">
+<meta property="og:updated_time" content="2019-06-26T06:34:13.603Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="剑指offer面试题21">
 <meta name="twitter:description" content="题目要求：将一个整数数组的奇数放到前面，偶数放到后面，而且奇数偶数原来的相对顺序不变编程语言：Java 思考：这题原本是剑指这本书上面的，但是条件不同，剑指条件没有顺序不变，那么就不能用书上的那种前后指针遇到奇数偶数就相互对调的方法，当然稍微改进下还是可以的">
@@ -198,6 +198,8 @@
 <p>思考：这题原本是剑指这本书上面的，但是条件不同，剑指条件没有顺序不变，那么就不能用书上的那种前后指针遇到奇数偶数就相互对调的方法，当然稍微改进下还是可以的</p>
 <img src="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190626013536.png" width="25%" height="25%" align="center">
 
+
+
 <a id="more"></a>
 
 <h3 id="思路一：这种情况下建立一个辅助数组存储，是最简便的方法，最后将辅助的数组赋值给原数组就行，缺点是空间复杂度高"><a href="#思路一：这种情况下建立一个辅助数组存储，是最简便的方法，最后将辅助的数组赋值给原数组就行，缺点是空间复杂度高" class="headerlink" title="思路一：这种情况下建立一个辅助数组存储，是最简便的方法，最后将辅助的数组赋值给原数组就行，缺点是空间复杂度高"></a>思路一：这种情况下建立一个辅助数组存储，是最简便的方法，最后将辅助的数组赋值给原数组就行，缺点是空间复杂度高</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reOrderArray</span><span class="params">(<span class="keyword">int</span> [] array)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] arraytmp = <span class="keyword">new</span> <span class="keyword">int</span>[array.length];</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(!isOdd(array[i]))&#123;</span><br><span class="line">                arraytmp[count] = array[i];</span><br><span class="line">                count++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(isOdd(array[i]))&#123;</span><br><span class="line">                arraytmp[count]=array[i];</span><br><span class="line">                count++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.arraycopy(arraytmp,<span class="number">0</span>,array,<span class="number">0</span>,array.length);<span class="comment">//这里也可以用for循环，不能直接用array=arraytmp,不然无法赋值成功</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isOdd</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;<span class="comment">//判断是否为奇偶</span></span><br><span class="line">        <span class="keyword">if</span>(n%<span class="number">2</span>==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -307,6 +309,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/06/26/剑指offer面试题22/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          剑指offer面试题22
+        
+      </div>
+    </a>
   
   
     <a href="/2019/06/26/剑指offer面试题18/" id="article-nav-older" class="article-nav-link-wrap">
@@ -471,15 +482,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">二次元</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">碎碎念</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">

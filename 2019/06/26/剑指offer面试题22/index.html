@@ -6,20 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>ElasticSearch原理 | Andymon的二点五次元</title>
+  <title>剑指offer面试题22 | Andymon的二点五次元</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、首先关于数据的写入:首先，当我们对记录进行修改时，es会把数据同时写到内存缓存区和translog中。而这个时候数据是不能被搜索到的，只有数据形成了segmentFile，才会被搜索到。默认情况下,es每隔一秒钟执行一次refresh，可以通过参数index.refresh_interval来修改这个刷新间隔，执行refresh主要做三件事：">
-<meta name="keywords" content="技术">
+  <meta name="keywords" content="编程题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ElasticSearch原理">
-<meta property="og:url" content="http://yoursite.com/2019/06/24/es原理/index.html">
+<meta property="og:title" content="剑指offer面试题22">
+<meta property="og:url" content="http://yoursite.com/2019/06/26/剑指offer面试题22/index.html">
 <meta property="og:site_name" content="Andymon的二点五次元">
-<meta property="og:description" content="1、首先关于数据的写入:首先，当我们对记录进行修改时，es会把数据同时写到内存缓存区和translog中。而这个时候数据是不能被搜索到的，只有数据形成了segmentFile，才会被搜索到。默认情况下,es每隔一秒钟执行一次refresh，可以通过参数index.refresh_interval来修改这个刷新间隔，执行refresh主要做三件事：">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-25T06:32:31.447Z">
+<meta property="og:updated_time" content="2019-06-26T06:34:39.272Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ElasticSearch原理">
-<meta name="twitter:description" content="1、首先关于数据的写入:首先，当我们对记录进行修改时，es会把数据同时写到内存缓存区和translog中。而这个时候数据是不能被搜索到的，只有数据形成了segmentFile，才会被搜索到。默认情况下,es每隔一秒钟执行一次refresh，可以通过参数index.refresh_interval来修改这个刷新间隔，执行refresh主要做三件事：">
+<meta name="twitter:title" content="剑指offer面试题22">
   
     <link rel="alternative" href="/atom.xml" title="Andymon的二点五次元" type="application/atom+xml">
   
@@ -172,51 +169,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-es原理" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-剑指offer面试题22" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      ElasticSearch原理
+      剑指offer面试题22
     </h1>
   
 
         
-        <a href="/2019/06/24/es原理/" class="archive-article-date">
-  	<time datetime="2019-06-24T11:07:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-24</time>
+        <a href="/2019/06/26/剑指offer面试题22/" class="archive-article-date">
+  	<time datetime="2019-06-26T06:33:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="1、首先关于数据的写入"><a href="#1、首先关于数据的写入" class="headerlink" title="1、首先关于数据的写入:"></a>1、首先关于数据的写入:</h4><h6 id="首先，当我们对记录进行修改时，es会把数据同时写到内存缓存区和translog中。而这个时候数据是不能被搜索到的，只有数据形成了segmentFile，才会被搜索到。默认情况下-es每隔一秒钟执行一次refresh，可以通过参数index-refresh-interval来修改这个刷新间隔，执行refresh主要做三件事："><a href="#首先，当我们对记录进行修改时，es会把数据同时写到内存缓存区和translog中。而这个时候数据是不能被搜索到的，只有数据形成了segmentFile，才会被搜索到。默认情况下-es每隔一秒钟执行一次refresh，可以通过参数index-refresh-interval来修改这个刷新间隔，执行refresh主要做三件事：" class="headerlink" title="首先，当我们对记录进行修改时，es会把数据同时写到内存缓存区和translog中。而这个时候数据是不能被搜索到的，只有数据形成了segmentFile，才会被搜索到。默认情况下,es每隔一秒钟执行一次refresh，可以通过参数index.refresh_interval来修改这个刷新间隔，执行refresh主要做三件事："></a>首先，当我们对记录进行修改时，es会把数据同时写到内存缓存区和translog中。而这个时候数据是不能被搜索到的，只有数据形成了segmentFile，才会被搜索到。默认情况下,es每隔一秒钟执行一次refresh，可以通过参数index.refresh_interval来修改这个刷新间隔，执行refresh主要做三件事：</h6><a id="more"></a>
-
-<hr>
-<p>1、所有在内存缓冲区中的文档被写入到一个新的segment中,但是没有调用fsync,因此内存中的数据可能丢失</p>
-<p>2、segment被打开使得里面的文档能够被搜索到</p>
-<p>3、清空内存缓冲区</p>
-<hr>
-<h6 id="内存缓存中的数据，每一秒会生成一个新的segment，一分钟就会生成60个segments。只有在生成segment之后，才会被索引到，所以这里说并非realtime，而是near-realtime"><a href="#内存缓存中的数据，每一秒会生成一个新的segment，一分钟就会生成60个segments。只有在生成segment之后，才会被索引到，所以这里说并非realtime，而是near-realtime" class="headerlink" title="内存缓存中的数据，每一秒会生成一个新的segment，一分钟就会生成60个segments。只有在生成segment之后，才会被索引到，所以这里说并非realtime，而是near-realtime"></a>内存缓存中的数据，每一秒会生成一个新的segment，一分钟就会生成60个segments。只有在生成segment之后，才会被索引到，所以这里说并非realtime，而是near-realtime</h6><h6 id="translog的相当于事务日志，记录着所有对Elasticsearch的操作记录，也是对Elasticsearch的一种备份。因为并不是写到segment就表示数据落到磁盘了，实际上segment是存储在系统缓存（page-cache）中的，只有达到一个周期或者数据量达到一定值，才会flush到磁盘上。这个时候如果系统内存中的segment丢失，是可以通过translog来恢复的。这个flush过程主要做了三件事："><a href="#translog的相当于事务日志，记录着所有对Elasticsearch的操作记录，也是对Elasticsearch的一种备份。因为并不是写到segment就表示数据落到磁盘了，实际上segment是存储在系统缓存（page-cache）中的，只有达到一个周期或者数据量达到一定值，才会flush到磁盘上。这个时候如果系统内存中的segment丢失，是可以通过translog来恢复的。这个flush过程主要做了三件事：" class="headerlink" title="translog的相当于事务日志，记录着所有对Elasticsearch的操作记录，也是对Elasticsearch的一种备份。因为并不是写到segment就表示数据落到磁盘了，实际上segment是存储在系统缓存（page cache）中的，只有达到一个周期或者数据量达到一定值，才会flush到磁盘上。这个时候如果系统内存中的segment丢失，是可以通过translog来恢复的。这个flush过程主要做了三件事："></a>translog的相当于事务日志，记录着所有对Elasticsearch的操作记录，也是对Elasticsearch的一种备份。因为并不是写到segment就表示数据落到磁盘了，实际上segment是存储在系统缓存（page cache）中的，只有达到一个周期或者数据量达到一定值，才会flush到磁盘上。这个时候如果系统内存中的segment丢失，是可以通过translog来恢复的。这个flush过程主要做了三件事：</h6><hr>
-<p>1、往磁盘里写入commit point信息。</p>
-<p>2、文件系统中的segment，fsync到磁盘。</p>
-<p>3、清空translog文件。</p>
-<p>translog可以保证缓存中的segment的恢复，但translog也不是实时也磁盘的，也就是说，内存中的translog丢了的话，也会有丢失数据的可能。所以translog也要进行flush。translog的flush主要有三个条件：</p>
-<p>1、可以设置是否在某些操作之后进行强制flush，比如索引的删除或批量请求之后。</p>
-<p>2、translog大小超过512mb或者超过三十分钟会强制对segment进行flush，随后会强制对translog进行flush，这种情况缓存中的translog在flush之后会被清空</p>
-<h4 id="2、关于ES在Lucene上的改变"><a href="#2、关于ES在Lucene上的改变" class="headerlink" title="2、关于ES在Lucene上的改变"></a>2、关于ES在Lucene上的改变</h4><h6 id="1、Lucene本身不支持分布式，Elasticsearch通过-routing实现分布式的架构。我们可以通过-routing来实现不同doc分布在不同的Shard上，我们可以自己定义也可以系统自动分配。对于指定-routing的插入和查询，性能上会更好。"><a href="#1、Lucene本身不支持分布式，Elasticsearch通过-routing实现分布式的架构。我们可以通过-routing来实现不同doc分布在不同的Shard上，我们可以自己定义也可以系统自动分配。对于指定-routing的插入和查询，性能上会更好。" class="headerlink" title="1、Lucene本身不支持分布式，Elasticsearch通过_routing实现分布式的架构。我们可以通过_routing来实现不同doc分布在不同的Shard上，我们可以自己定义也可以系统自动分配。对于指定_routing的插入和查询，性能上会更好。"></a>1、Lucene本身不支持分布式，Elasticsearch通过_routing实现分布式的架构。我们可以通过_routing来实现不同doc分布在不同的Shard上，我们可以自己定义也可以系统自动分配。对于指定_routing的插入和查询，性能上会更好。</h6><h6 id="2、Lucene中没有主键索引，并且id是在Segment中唯一。那么Elasticsearch是如何实现doc-id唯一？"><a href="#2、Lucene中没有主键索引，并且id是在Segment中唯一。那么Elasticsearch是如何实现doc-id唯一？" class="headerlink" title="2、Lucene中没有主键索引，并且id是在Segment中唯一。那么Elasticsearch是如何实现doc_id唯一？"></a>2、Lucene中没有主键索引，并且id是在Segment中唯一。那么Elasticsearch是如何实现doc_id唯一？</h6><h6 id="Elasticsearch中有个系统字段-id，来决定doc唯一。-id是在用户可见层度上的id值，实际上Elasticsearch内部会把-id存储成-uid（-uid-index-type-‘-’-id）。-uid只会存储倒排和原文，目的就是为了通过id可以快速索引到doc。这里需要注意的是，在Elasticsearch6-x版本以后，-一个index只支持一个type-，这也就意味着-id和-uid概念几乎相同。以后的版本中，Elasticsearch会取消type。"><a href="#Elasticsearch中有个系统字段-id，来决定doc唯一。-id是在用户可见层度上的id值，实际上Elasticsearch内部会把-id存储成-uid（-uid-index-type-‘-’-id）。-uid只会存储倒排和原文，目的就是为了通过id可以快速索引到doc。这里需要注意的是，在Elasticsearch6-x版本以后，-一个index只支持一个type-，这也就意味着-id和-uid概念几乎相同。以后的版本中，Elasticsearch会取消type。" class="headerlink" title="Elasticsearch中有个系统字段_id，来决定doc唯一。_id是在用户可见层度上的id值，实际上Elasticsearch内部会把_id存储成_uid（_uid =index_type + ‘#’ + _id）。_uid只会存储倒排和原文，目的就是为了通过id可以快速索引到doc。这里需要注意的是，在Elasticsearch6.x版本以后，++==一个index只支持一个type==++，这也就意味着_id和_uid概念几乎相同。以后的版本中，Elasticsearch会取消type。"></a>Elasticsearch中有个系统字段_id，来决定doc唯一。_id是在用户可见层度上的id值，实际上Elasticsearch内部会把_id存储成_uid（_uid =index_type + ‘#’ + _id）。_uid只会存储倒排和原文，目的就是为了通过id可以快速索引到doc。这里需要注意的是，在Elasticsearch6.x版本以后，++==一个index只支持一个type==++，这也就意味着_id和_uid概念几乎相同。以后的版本中，Elasticsearch会取消type。</h6><h4 id="3、ES的写入流程"><a href="#3、ES的写入流程" class="headerlink" title="3、ES的写入流程"></a>3、ES的写入流程</h4><p>数据库中的写入只是单纯的写入行，Elasticsearch中的写入则是建立索引文件，可以理解成数据即索引。ES可以当作NoSql去做，但是区别就是不支持事务机制。</p>
-<h5 id="实时性"><a href="#实时性" class="headerlink" title="实时性"></a>实时性</h5><p>Elasticsearch的主要应用场景就是实时，但Elasticsearch本身并非实时而是near-real-time（近实时）。Elasticsearch默认写入的数据会在1秒后，才可以被检索到。</p>
-<p>NoSQL数据库则可以做到real-time（实时），一般情况下写入成功后是马上可以被查询到的。Elasticsearch中的Get请求也能保证是实时的，因为Get请求会直接读内存中尚未Flush到磁盘的TransLog。但是Get请求只支持通过doc_id进行查询，所以对于条件查询依然无法实现实时。</p>
-<h5 id="可靠性"><a href="#可靠性" class="headerlink" title="可靠性"></a>可靠性</h5><p>一种情况是我们从一个原始数据源，比如数据库，导入数据到Elasticsearch。这种情况对Elasticsearch的可靠性要求可能就没那么高，主要的功能还是搜索。因为原始数据存储是一个数据保障，即使Elasticsearch发生数据丢失，重新导入就行了。但有一种场景就是数据直接写Elasticsearch的，并且不允许丢失，这个时候对Elasticsearch的可靠性要求就很高。</p>
-<h5 id="ES的写入"><a href="#ES的写入" class="headerlink" title="ES的写入"></a>ES的写入</h5><p>Elasticsearch中每个index由多个shard组成，默认是5个，每个shard分布在不同的机器上。shard分为主分片和副本分片，在文档写入时，会根据_routing来计算（OperationRouting类）得出文档要写入哪个分片。这里的写入请求只会写主分片，当主分片写入成功后，会同时把写入请求发送给所有的副本分片，当副本分片写入成功后，会传回返回信息给主分片，主分片得到所有副本分片的返回信息后，再返回给客户端。 </p>
-<p>在写入时，我们可以在Request自己指定_routing，也可以在Mapping指定文档中的Field值作为_routing。如果没有指定_routing，则会把_id作为_routing进行计算。由于写入时，具有相同_routing的文档一定会分配在同一个分片上，所以如果是自定义的_routing，在查询时，一定要指定_routing进行查询，否则是查询不到文档的。这并不是局限性，恰恰相反，指定_routing的查询，性能上会好很多，因为指定_routing意味着直接去存储数据的shard上搜索，而不会搜索所有shard。</p>
-<p>在shard中，每次写入顺序是先写入Lucene，再写入TransLog。</p>
-<p>当写入请求到shard后，首先是写Lucene，其实就是创建索引，索引创建好后并不是马上生成segment，这个时候索引数据还在缓存中，这里的缓存是lucene的缓存，并非Elasticsearch缓存。lucene缓存中的数据是不可被查询的。写入内存之后会写TransLog，TransLog可以理解为事务日志，类似数据库中的Binlog。这里跟数据库的区别是Elasticsearch是先写内存后写Log，数据库是先写Log再写内存。TransLog跟数据库一样是real-time的，所以Elasticsearch也可以做到real-time。那什么情况下是real-time呢？当Elasticsearch的查询是Get方式的时候，是优先查TransLog的，因为TransLog是real-time的，所以这个时候查到的数据就是实时写入的数据。</p>
-<h5 id="敲黑板划重点："><a href="#敲黑板划重点：" class="headerlink" title="敲黑板划重点："></a>敲黑板划重点：</h5><p><strong>update流程</strong>:</p>
-<h6 id="接受update请求后，首先通过id在Segments或TransLog中取出要修改的文档内容，记录版本号为V1。"><a href="#接受update请求后，首先通过id在Segments或TransLog中取出要修改的文档内容，记录版本号为V1。" class="headerlink" title="接受update请求后，首先通过id在Segments或TransLog中取出要修改的文档内容，记录版本号为V1。"></a>接受update请求后，首先通过id在Segments或TransLog中取出要修改的文档内容，记录版本号为V1。</h6><h6 id="将版本号为V1的全部文档内容与要修改的文档内容（修改部分字段内容）合并，同时更新内存中的VersionMap。自此修改后的新文档已经生成，接下来就是index请求，把修改后的文档索引。"><a href="#将版本号为V1的全部文档内容与要修改的文档内容（修改部分字段内容）合并，同时更新内存中的VersionMap。自此修改后的新文档已经生成，接下来就是index请求，把修改后的文档索引。" class="headerlink" title="将版本号为V1的全部文档内容与要修改的文档内容（修改部分字段内容）合并，同时更新内存中的VersionMap。自此修改后的新文档已经生成，接下来就是index请求，把修改后的文档索引。"></a>将版本号为V1的全部文档内容与要修改的文档内容（修改部分字段内容）合并，同时更新内存中的VersionMap。自此修改后的新文档已经生成，接下来就是index请求，把修改后的文档索引。</h6><h6 id="加锁"><a href="#加锁" class="headerlink" title="加锁"></a>加锁</h6><h6 id="再次从versionMap中读取该id的最大版本号V2，如果versionMap中没有，则从Segment或者TransLog中读取。"><a href="#再次从versionMap中读取该id的最大版本号V2，如果versionMap中没有，则从Segment或者TransLog中读取。" class="headerlink" title="再次从versionMap中读取该id的最大版本号V2，如果versionMap中没有，则从Segment或者TransLog中读取。"></a>再次从versionMap中读取该id的最大版本号V2，如果versionMap中没有，则从Segment或者TransLog中读取。</h6><h6 id="检查版本是否冲突，如果V1-V2，则说明修改的最高版本号的文档，则进入下一步。如果V1-lt-V2，说明本次修改并非修改的最高版本号的文档，修改失败。返回第一步重新执行。"><a href="#检查版本是否冲突，如果V1-V2，则说明修改的最高版本号的文档，则进入下一步。如果V1-lt-V2，说明本次修改并非修改的最高版本号的文档，修改失败。返回第一步重新执行。" class="headerlink" title="检查版本是否冲突，如果V1==V2，则说明修改的最高版本号的文档，则进入下一步。如果V1 &lt; V2，说明本次修改并非修改的最高版本号的文档，修改失败。返回第一步重新执行。"></a>检查版本是否冲突，如果V1==V2，则说明修改的最高版本号的文档，则进入下一步。如果V1 &lt; V2，说明本次修改并非修改的最高版本号的文档，修改失败。返回第一步重新执行。</h6><h6 id="将版本号递增为V3（V2-1）。然后把文档写入到Lucene中，Lucene会先删除掉原来id的文档，然后把修改后的新文档增加进去。然后更新VersionMap中的版本号为V3。"><a href="#将版本号递增为V3（V2-1）。然后把文档写入到Lucene中，Lucene会先删除掉原来id的文档，然后把修改后的新文档增加进去。然后更新VersionMap中的版本号为V3。" class="headerlink" title="将版本号递增为V3（V2+1）。然后把文档写入到Lucene中，Lucene会先删除掉原来id的文档，然后把修改后的新文档增加进去。然后更新VersionMap中的版本号为V3。"></a>将版本号递增为V3（V2+1）。然后把文档写入到Lucene中，Lucene会先删除掉原来id的文档，然后把修改后的新文档增加进去。然后更新VersionMap中的版本号为V3。</h6><h6 id="释放锁，更新结束"><a href="#释放锁，更新结束" class="headerlink" title="释放锁，更新结束"></a>释放锁，更新结束</h6><h5 id="ES的删除"><a href="#ES的删除" class="headerlink" title="ES的删除"></a>ES的删除</h5><p>删除文档不会立即将文档从磁盘中删除，只是将文档标记为已删除状态。随着你不断的索引更多的数据，Elasticsearch 将会在后台清理标记为已删除的文档。</p>
-
+        
       
 
       
@@ -250,7 +223,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">编程题</a>
         		</li>
       		
 		</ul>
@@ -306,7 +279,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/24/es原理/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/26/剑指offer面试题22/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -320,18 +293,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/06/24/剑指offer2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          剑指offer题解之面试题2
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/06/24/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Andymon的第一个博客-ES环境的搭建</div>
+    <a href="/2019/06/26/剑指offer面试题21/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">剑指offer面试题21</div>
       <i class="icon-circle-right"></i>
     </a>
   
