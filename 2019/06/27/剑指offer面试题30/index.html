@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>二点五次元的Andymon | Andymon的二点五次元</title>
+  <title>剑指offer面试题30 | Andymon的二点五次元</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="讲实在话，我不是一个爱写博客的人，从记事以来的话，我写日常记录最多的时候竟然还是小学初中写日记的时候，当然，那是因为老师要检查哈哈哈。高中的时候，明明笔记应该很重要吧，但是恰恰相反，高中时候虽然上课也写着笔记，但是确实记得不好，就好像抄老师的板书一样。所以也就造成了，哪门课的老师板书规整，我哪门课成绩好。印象尤其深刻的是，我的第一个生物老师，他很厉害，好像是中科院毕业的呢。但是由于他板书太过于抽象">
-<meta name="keywords" content="二次元,碎碎念">
+  <meta name="description" content="题目要求：定义栈的数据结构，请在该类型中实现一个能够得到栈中所含最小元素的min函数（时间复杂度应为O（1））。编程语言：Java 思考：此题目的意思是构建一个新的数据结构，既然一个栈需要获得它的最小值，那么应该用另一个栈辅助构建，另一个栈只往里面压最小的值，如果不是最小的值则不往里面压。如果最小的值被pop出去了，那么应该把辅助栈的栈顶也pop出去">
+<meta name="keywords" content="编程题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="二点五次元的Andymon">
-<meta property="og:url" content="http://yoursite.com/2019/06/24/二次元的Andymon/index.html">
+<meta property="og:title" content="剑指offer面试题30">
+<meta property="og:url" content="http://yoursite.com/2019/06/27/剑指offer面试题30/index.html">
 <meta property="og:site_name" content="Andymon的二点五次元">
-<meta property="og:description" content="讲实在话，我不是一个爱写博客的人，从记事以来的话，我写日常记录最多的时候竟然还是小学初中写日记的时候，当然，那是因为老师要检查哈哈哈。高中的时候，明明笔记应该很重要吧，但是恰恰相反，高中时候虽然上课也写着笔记，但是确实记得不好，就好像抄老师的板书一样。所以也就造成了，哪门课的老师板书规整，我哪门课成绩好。印象尤其深刻的是，我的第一个生物老师，他很厉害，好像是中科院毕业的呢。但是由于他板书太过于抽象">
+<meta property="og:description" content="题目要求：定义栈的数据结构，请在该类型中实现一个能够得到栈中所含最小元素的min函数（时间复杂度应为O（1））。编程语言：Java 思考：此题目的意思是构建一个新的数据结构，既然一个栈需要获得它的最小值，那么应该用另一个栈辅助构建，另一个栈只往里面压最小的值，如果不是最小的值则不往里面压。如果最小的值被pop出去了，那么应该把辅助栈的栈顶也pop出去">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/wife.jpg">
-<meta property="og:updated_time" content="2019-06-25T06:10:36.463Z">
+<meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190627190155.png">
+<meta property="og:updated_time" content="2019-06-27T11:05:46.167Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="二点五次元的Andymon">
-<meta name="twitter:description" content="讲实在话，我不是一个爱写博客的人，从记事以来的话，我写日常记录最多的时候竟然还是小学初中写日记的时候，当然，那是因为老师要检查哈哈哈。高中的时候，明明笔记应该很重要吧，但是恰恰相反，高中时候虽然上课也写着笔记，但是确实记得不好，就好像抄老师的板书一样。所以也就造成了，哪门课的老师板书规整，我哪门课成绩好。印象尤其深刻的是，我的第一个生物老师，他很厉害，好像是中科院毕业的呢。但是由于他板书太过于抽象">
-<meta name="twitter:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/wife.jpg">
+<meta name="twitter:title" content="剑指offer面试题30">
+<meta name="twitter:description" content="题目要求：定义栈的数据结构，请在该类型中实现一个能够得到栈中所含最小元素的min函数（时间复杂度应为O（1））。编程语言：Java 思考：此题目的意思是构建一个新的数据结构，既然一个栈需要获得它的最小值，那么应该用另一个栈辅助构建，另一个栈只往里面压最小的值，如果不是最小的值则不往里面压。如果最小的值被pop出去了，那么应该把辅助栈的栈顶也pop出去">
+<meta name="twitter:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190627190155.png">
   
     <link rel="alternative" href="/atom.xml" title="Andymon的二点五次元" type="application/atom+xml">
   
@@ -174,39 +174,33 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-二次元的Andymon" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-剑指offer面试题30" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      二点五次元的Andymon
+      剑指offer面试题30
     </h1>
   
 
         
-        <a href="/2019/06/24/二次元的Andymon/" class="archive-article-date">
-  	<time datetime="2019-06-24T15:36:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-24</time>
+        <a href="/2019/06/27/剑指offer面试题30/" class="archive-article-date">
+  	<time datetime="2019-06-27T10:57:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>讲实在话，我不是一个爱写博客的人，从记事以来的话，我写日常记录最多的时候竟然还是小学初中写日记的时候，当然，那是因为老师要检查哈哈哈。高中的时候，明明笔记应该很重要吧，但是恰恰相反，高中时候虽然上课也写着笔记，但是确实记得不好，就好像抄老师的板书一样。所以也就造成了，哪门课的老师板书规整，我哪门课成绩好。印象尤其深刻的是，我的第一个生物老师，他很厉害，好像是中科院毕业的呢。但是由于他板书太过于抽象，所以，哎，直到高二换老师，生物就一直没及格过。</p>
+        <p>题目要求：定义栈的数据结构，请在该类型中实现一个能够得到栈中所含最小元素的min函数（时间复杂度应为O（1））。<br>编程语言：Java</p>
+<p>思考：此题目的意思是构建一个新的数据结构，既然一个栈需要获得它的最小值，那么应该用另一个栈辅助构建，另一个栈只往里面压最小的值，如果不是最小的值则不往里面压。如果最小的值被pop出去了，那么应该把辅助栈的栈顶也pop出去</p>
+<p><img src="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190627190155.png" alt></p>
 <a id="more"></a>
 
-<p>不过这个好像和此事无关，还是想说说二次元给我带来的东西吧。我其实算不上那种超热衷的二次元宅。我小学初中都是在农村里，家里不算有钱，虽然也不缺我钱花就是。家里初一还是初二有了第一台电脑，但是那时还秉持着“上网打游戏的孩子都是坏孩子的思想”，也就玩玩QQ宠物啊。后面稍微玩玩DNF啥的。说来惭愧，现在研究生都快毕业了，DNF还是删了装装了删，不过也淡然了，喜欢的东西，为何要抛弃呢？</p>
-<p>小学初中其实看过的日漫真的很少，那时候真的和城里的孩子接触的不一样，他们火影一直追，海贼一直追，柯南一直追，然后又是白色相簿啊，还是高二高三比较火的刀剑神域啊。高中之前，我柯南只在电视上看过少许的几集，七龙珠也只看到孙悟空打败短笛大魔王初代，那时候最喜欢看华娱卫视了，那时每周还能看到新鲜的日漫，比如最游记、家庭教师、通灵王。这三部到现在还影响我的生活其实。</p>
-<p>高中啊，真的是中二病中二要死，天天模仿着家教里的泽田纲吉，现在想起来还真是可爱啊。虽然高中没咋努力学习，但是也确实没咋真的怎么看动漫，毕竟设备没有，只能周末借同学的mp5看看动漫，还得偷偷着来，想起来真的颓废，片没看着，学习也没学好。现在对高中的记忆，好像真的就是《家庭教师》、还有《刀剑神域》在我脑子里还有点印象吧。那时候《进击的巨人》还没火，《东京食尸鬼》也还没火。</p>
-<p>高考考的一般般吧，去了个东北的211。其实我当时也不甘心啊，我认为我可以去一个差一点的985的呢。我发现周围和我格格不入，其实现在才发现我只是把自己放在了一个“目标制高点”上，每天想着努力啊努力啊，但是却给自己太大压力，反而不会按部就班学习自己真正想要的东西了。那时和室友关系也不好，和老师关系也就那样，还是个死胖子，简直把必死局凑全了。</p>
-<p>好像还没到真正的主题，那时嘛，也没啥朋友，或者说朋友很少吧，所以只能自己去看看想看的玩意儿。那时候万万没想到啊、屌丝男士啊，网剧铺天盖地的席卷大学，我不爱看，我认为他听上去恶俗hhh。我那时真正接触了bilibili，然后看了很多的动漫，我认为三次元太无聊，太低俗，既然都是快餐文化，为啥我不能看二次元？</p>
-<p>于是我先看了fate系列的战斗番剧（是的，当时我真的把它当作战斗番）、补了东京食尸鬼、补了巨人，也算是和时代接轨了吧，当时觉得不能只看燃番啊，得看看别的类型的吧？然后又看了催泪几步曲啥的，比如Clannad，CL的第一季真的无聊啊，看到After Story我真的震惊了，还有如此歌颂爱情的，歌颂生活的，原来日常还可以这么铺垫。然后我又看了Angel Beats，这部明显欢快了很多，但是立华奏消失的那一刻，我也心里酸酸的。还有啊，我举得罪恶王冠就是个爽片，为了深刻而深刻。然后呢，慢慢又补了好多，现在写博客让我想，还真不好想呢，毕竟一时间思路没那么清晰，尤其是大晚上的不清晰。</p>
-<p>但是我还是能记得，炮姐御坂美琴的直率、樱花庄朋友的羁绊（说实话樱花庄真的超级好看，我那段时间状态很差，但是看完樱花庄后，我明白了，即使你怎么也追赶不上别人，那你也要继续努力下去，你要为了自己想做的认真坚持下去，千万不要放弃，七海都没放弃，空太都没放弃，你这等努力程度算个屁啊）、我还喜欢中二病的小鸟游六花她真的太可爱了！！！！然后还有啊，所谓的入宅的俺妹也看了，夏娜的无路赛，猪头少年和兔女郎学姐的神仙打架，Re0男主的成长和蕾姆的胸怀，还有重返十七岁，还有小英雄的超超超热血，每年四月都会想起薰和有马公生，然后啊，夏目友人帐的治愈，fate士郎的成长，未闻花名里面，面码对你喜欢真的是想当你新娘的喜欢哦。</p>
-<p>最近那，好久没看动漫了啊，又看了《路人女主的养成方法》，圣人惠真的是我的理想型啊，那些光彩照人的女生，是不适合二次元宅的好吧。我虽然还看着动漫，但是我真的不是纯二次元的人啊，我也懂得人情世故，也懂得如何生活，也谈过不成功的恋爱，也认识过现实也被打击过，身边没有闪闪发光的女生会看上我这种的好不?但是加藤惠，虽然不光彩夺目，但是只有她一直陪伴在伦也身边，她不会时时刻刻都撒娇，她只会在需要的时候变得圣人，她不会随便吃醋，但是会把自己的情绪通过自己的方法展示出来，她有着小小心机，这种女孩懂得在最需要的时候展示自己的可爱，不需要时刻灿烂，只需要占据你的视野。她会为了你，她会默默支持你，为你改变。英梨梨和学姐都很棒，但是惠可是打败了傲娇双马尾和病娇黑长直哦，另外两个都是天才哦~
-<img src="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/wife.jpg" alt="test"><br>哈哈，好きな加藤</p>
-<p>当然这只是最近成为的惠痴心里的妄想哈哈~我还是会向前看的，一定要加油啊，二点五次元的Andymon！</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">这里直接上代码了：</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MinStack</span> </span>&#123;</span><br><span class="line">    Stack&lt;Integer&gt; data = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    Stack&lt;Integer&gt; min = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line"><span class="comment">//辅助栈的效果是，只压入最小值</span></span><br><span class="line"><span class="comment">//如果data压入数据的顺序为5,6,4,8,9,2,4,1</span></span><br><span class="line"><span class="comment">//那么辅助栈min的压入顺序为5,no,4,no,no,2,no,1</span></span><br><span class="line"><span class="comment">//当pop数据时，如果data的栈顶和min一样，则都弹出去，否则只弹出data的</span></span><br><span class="line"><span class="comment">//top方法直接返回data的栈顶就行</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(min.isEmpty())&#123;</span><br><span class="line">            min.push(node);</span><br><span class="line">            data.push(node);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(min.peek()&gt;node)&#123;</span><br><span class="line">                min.push(node);</span><br><span class="line">            &#125;</span><br><span class="line">            data.push(node);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> num = data.pop();</span><br><span class="line">        <span class="keyword">if</span>(num==min.peek())&#123;</span><br><span class="line">            min.pop();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> data.peek();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">min</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> min.peek();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -241,11 +235,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">二次元</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">碎碎念</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">编程题</a>
         		</li>
       		
 		</ul>
@@ -301,7 +291,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/24/二次元的Andymon/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/27/剑指offer面试题30/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -315,18 +305,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/06/25/剑指15/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          剑指offer面试题15
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/06/24/剑指offer题解之面试题3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">剑指offer题解之面试题3</div>
+    <a href="/2019/06/27/剑指offer面试题29/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">剑指offer面试题29</div>
       <i class="icon-circle-right"></i>
     </a>
   
