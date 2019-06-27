@@ -8,14 +8,20 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>剑指offer面试题31 | Andymon的二点五次元</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="题目要求：输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否可能为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如序列1,2,3,4,5是某栈的压入顺序，序列4,5,3,2,1是该压栈序列对应的一个弹出序列，但4,3,5,1,2就不可能是该压栈序列的弹出序列。（注意：这两个序列的长度是相等的）编程语言：Java">
+<meta name="keywords" content="编程题">
+<meta property="og:type" content="article">
 <meta property="og:title" content="剑指offer面试题31">
 <meta property="og:url" content="http://yoursite.com/2019/06/27/剑指offer面试题31/index.html">
 <meta property="og:site_name" content="Andymon的二点五次元">
+<meta property="og:description" content="题目要求：输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否可能为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如序列1,2,3,4,5是某栈的压入顺序，序列4,5,3,2,1是该压栈序列对应的一个弹出序列，但4,3,5,1,2就不可能是该压栈序列的弹出序列。（注意：这两个序列的长度是相等的）编程语言：Java">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-27T11:34:55.706Z">
+<meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190627193729.png">
+<meta property="og:updated_time" content="2019-06-27T12:03:53.405Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="剑指offer面试题31">
+<meta name="twitter:description" content="题目要求：输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否可能为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如序列1,2,3,4,5是某栈的压入顺序，序列4,5,3,2,1是该压栈序列对应的一个弹出序列，但4,3,5,1,2就不可能是该压栈序列的弹出序列。（注意：这两个序列的长度是相等的）编程语言：Java">
+<meta name="twitter:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190627193729.png">
   
     <link rel="alternative" href="/atom.xml" title="Andymon的二点五次元" type="application/atom+xml">
   
@@ -188,7 +194,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>题目要求：输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否可能为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如序列1,2,3,4,5是某栈的压入顺序，序列4,5,3,2,1是该压栈序列对应的一个弹出序列，但4,3,5,1,2就不可能是该压栈序列的弹出序列。（注意：这两个序列的长度是相等的）<br>编程语言：Java</p>
+<p><img src="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190627193729.png" alt></p>
+<a id="more"></a>
+
+<h3 id="思路：这一题也是一道数据结构的题目，我们应该这么思考问题："><a href="#思路：这一题也是一道数据结构的题目，我们应该这么思考问题：" class="headerlink" title="思路：这一题也是一道数据结构的题目，我们应该这么思考问题："></a>思路：这一题也是一道数据结构的题目，我们应该这么思考问题：</h3><ol>
+<li>pushA为入栈数组，那么我们把pushA的数据顺序压入一个栈中。</li>
+<li>在这个栈有元素的时候，尝试去peek这个栈顶，如果和popA的第一个数相同，那么将这个数pop出来。</li>
+<li>pop出来一个后，popA的指针指向数组的下一个数，然后继续2的操作，如果不同的话，则继续往栈中压数据</li>
+<li>然后重复2、3的步骤</li>
+<li>循环终止条件为pushA中的数压完了，或者popA中的数遍历完了，此时，如果stack为空，则返回true，否则返回false</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Stack;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">IsPopOrder</span><span class="params">(<span class="keyword">int</span> [] pushA,<span class="keyword">int</span> [] popA)</span> </span>&#123;</span><br><span class="line">      Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> length = popA.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">            stack.push(pushA[i]);</span><br><span class="line">            <span class="keyword">while</span> (stack.peek()==popA[count])&#123;</span><br><span class="line">                stack.pop();</span><br><span class="line">                count++;</span><br><span class="line">                <span class="keyword">if</span>(count&gt;=length)</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(stack.isEmpty())&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
 
       
@@ -217,6 +236,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">编程题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -280,6 +310,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/06/27/剑指offer面试题32/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          剑指offer面试题32
+        
+      </div>
+    </a>
   
   
     <a href="/2019/06/27/剑指offer面试题30/" id="article-nav-older" class="article-nav-link-wrap">
@@ -440,11 +479,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">技术</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技术</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
