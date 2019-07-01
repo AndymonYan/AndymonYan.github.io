@@ -6,22 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>剑指offer面试题30 | Andymon的二点五次元</title>
+  <title>将maven配置为阿里云仓库 | Andymon的二点五次元</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题目要求：定义栈的数据结构，请在该类型中实现一个能够得到栈中所含最小元素的min函数（时间复杂度应为O（1））。编程语言：Java 思考：此题目的意思是构建一个新的数据结构，既然一个栈需要获得它的最小值，那么应该用另一个栈辅助构建，另一个栈只往里面压最小的值，如果不是最小的值则不往里面压。如果最小的值被pop出去了，那么应该把辅助栈的栈顶也pop出去">
-<meta name="keywords" content="编程题">
+  <meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指offer面试题30">
-<meta property="og:url" content="http://yoursite.com/2019/06/27/剑指offer面试题30/index.html">
+<meta property="og:title" content="将maven配置为阿里云仓库">
+<meta property="og:url" content="http://yoursite.com/2019/07/01/将maven配置为阿里云仓库/index.html">
 <meta property="og:site_name" content="Andymon的二点五次元">
-<meta property="og:description" content="题目要求：定义栈的数据结构，请在该类型中实现一个能够得到栈中所含最小元素的min函数（时间复杂度应为O（1））。编程语言：Java 思考：此题目的意思是构建一个新的数据结构，既然一个栈需要获得它的最小值，那么应该用另一个栈辅助构建，另一个栈只往里面压最小的值，如果不是最小的值则不往里面压。如果最小的值被pop出去了，那么应该把辅助栈的栈顶也pop出去">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190627190155.png">
-<meta property="og:updated_time" content="2019-06-27T11:05:46.167Z">
+<meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190701225929.png">
+<meta property="og:updated_time" content="2019-07-01T14:59:52.943Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="剑指offer面试题30">
-<meta name="twitter:description" content="题目要求：定义栈的数据结构，请在该类型中实现一个能够得到栈中所含最小元素的min函数（时间复杂度应为O（1））。编程语言：Java 思考：此题目的意思是构建一个新的数据结构，既然一个栈需要获得它的最小值，那么应该用另一个栈辅助构建，另一个栈只往里面压最小的值，如果不是最小的值则不往里面压。如果最小的值被pop出去了，那么应该把辅助栈的栈顶也pop出去">
-<meta name="twitter:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190627190155.png">
+<meta name="twitter:title" content="将maven配置为阿里云仓库">
+<meta name="twitter:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190701225929.png">
   
     <link rel="alternative" href="/atom.xml" title="Andymon的二点五次元" type="application/atom+xml">
   
@@ -174,33 +171,46 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-剑指offer面试题30" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-将maven配置为阿里云仓库" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      剑指offer面试题30
+      将maven配置为阿里云仓库
     </h1>
   
 
         
-        <a href="/2019/06/27/剑指offer面试题30/" class="archive-article-date">
-  	<time datetime="2019-06-27T10:57:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-27</time>
+        <a href="/2019/07/01/将maven配置为阿里云仓库/" class="archive-article-date">
+  	<time datetime="2019-07-01T14:32:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>题目要求：定义栈的数据结构，请在该类型中实现一个能够得到栈中所含最小元素的min函数（时间复杂度应为O（1））。<br>编程语言：Java</p>
-<p>思考：此题目的意思是构建一个新的数据结构，既然一个栈需要获得它的最小值，那么应该用另一个栈辅助构建，另一个栈只往里面压最小的值，如果不是最小的值则不往里面压。如果最小的值被pop出去了，那么应该把辅助栈的栈顶也pop出去</p>
-<p><img src="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190627190155.png" alt></p>
+        <p><img src="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190701225929.png" alt></p>
 <a id="more"></a>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">这里直接上代码了：</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MinStack</span> </span>&#123;</span><br><span class="line">    Stack&lt;Integer&gt; data = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    Stack&lt;Integer&gt; min = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line"><span class="comment">//辅助栈的效果是，只压入最小值</span></span><br><span class="line"><span class="comment">//如果data压入数据的顺序为5,6,4,8,9,2,4,1</span></span><br><span class="line"><span class="comment">//那么辅助栈min的压入顺序为5,no,4,no,no,2,no,1</span></span><br><span class="line"><span class="comment">//当pop数据时，如果data的栈顶和min一样，则都弹出去，否则只弹出data的</span></span><br><span class="line"><span class="comment">//top方法直接返回data的栈顶就行</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(min.isEmpty())&#123;</span><br><span class="line">            min.push(node);</span><br><span class="line">            data.push(node);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(min.peek()&gt;node)&#123;</span><br><span class="line">                min.push(node);</span><br><span class="line">            &#125;</span><br><span class="line">            data.push(node);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> num = data.pop();</span><br><span class="line">        <span class="keyword">if</span>(num==min.peek())&#123;</span><br><span class="line">            min.pop();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> data.peek();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">min</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> min.peek();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>大家应该都知道maven是Java里面包管理工具，但是由于maven的中央仓库在国外，当你导入的jar包过多时，还是会下载很长时间的，尤其是有关spring的一些包，等待中央仓库下载好黄花菜都凉了~</p>
+<p>其实我之前也知道过阿里云的仓库，但是没去实践。现在只需要做一步配置就ok：</p>
+<p>在你的maven的conf文件夹，修改settings.xml文件，添加阿里云的镜像：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span>       </span><br><span class="line">    <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">mirrors</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
+<p>这样的话你的jar包下载就会变快了。</p>
+<h4 id="小知识：maven包的依赖加载顺序"><a href="#小知识：maven包的依赖加载顺序" class="headerlink" title="小知识：maven包的依赖加载顺序"></a>小知识：maven包的依赖加载顺序</h4><p>maven项目使用的仓库一共有如下几种方式：</p>
+<ol>
+<li>中央仓库，这是默认的仓库</li>
+<li>镜像仓库，通过 sttings.xml 中的 settings.mirrors.mirror 配置</li>
+<li>全局profile仓库，通过 settings.xml 中的 settings.repositories.repository 配置</li>
+<li>项目仓库，通过 pom.xml 中的 project.repositories.repository 配置</li>
+<li>项目profile仓库，通过 pom.xml 中的 project.profiles.profile.repositories.repository 配置</li>
+<li>本地仓库</li>
+</ol>
+<p>真正的多源仓库加载顺序如下所示：</p>
+<p>local_repo &gt; settings_profile_repo &gt; pom_profile_repo &gt; pom_repositories &gt; settings_mirror &gt; central</p>
 
       
 
@@ -235,7 +245,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">编程题</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		
 		</ul>
@@ -291,7 +301,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/27/剑指offer面试题30/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/01/将maven配置为阿里云仓库/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -305,18 +315,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/06/27/剑指offer面试题31/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          剑指offer面试题31
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/06/27/剑指offer面试题29/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">剑指offer面试题29</div>
+    <a href="/2019/07/01/Git是什么鬼以及有啥用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Git是什么鬼以及有啥用（参考廖雪峰的教程，自己写的总结，不包括分支管理）</div>
       <i class="icon-circle-right"></i>
     </a>
   
