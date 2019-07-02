@@ -11,13 +11,21 @@
   <meta name="keywords" content="技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java虚拟机总结(周志明)">
-<meta property="og:url" content="http://yoursite.com/2019/06/28/Java虚拟机总结-周志明-1/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/07/02/Java虚拟机总结-周志明-1/index.html">
 <meta property="og:site_name" content="Andymon的二点五次元">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190628135003.png">
 <meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190628134515.png">
 <meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190628134558.png">
-<meta property="og:updated_time" content="2019-06-30T15:11:45.777Z">
+<meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190702101803.png">
+<meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190702102248.png">
+<meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190702102429.png">
+<meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190702110048.png">
+<meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190702110815.png">
+<meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190702112307.png">
+<meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190702113843.png">
+<meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190702141813.png">
+<meta property="og:updated_time" content="2019-07-02T06:37:06.055Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java虚拟机总结(周志明)">
 <meta name="twitter:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190628135003.png">
@@ -185,8 +193,8 @@
   
 
         
-        <a href="/2019/06/28/Java虚拟机总结-周志明-1/" class="archive-article-date">
-  	<time datetime="2019-06-28T04:11:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-28</time>
+        <a href="/2019/07/02/Java虚拟机总结-周志明-1/" class="archive-article-date">
+  	<time datetime="2019-07-02T01:31:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-02</time>
 </a>
         
       </header>
@@ -210,15 +218,17 @@
 <li>如果线程执行的是一个Java方法的话，则程序计数器记录的是正在执行的<strong>虚拟机字节码指令的地址</strong>。如果执行的Native方法，则程序计数器为空。（ps：Native方法把它理解为Java调用非Java代码的接口，这个方法不由Java实现，比如用C、C++等，Java底层相关很多的操作都是Native方法）</li>
 </ol>
 <h4 id="1-1-2-虚拟机栈"><a href="#1-1-2-虚拟机栈" class="headerlink" title="1.1.2 虚拟机栈"></a>1.1.2 虚拟机栈</h4><ol>
-<li>虚拟机栈是方法执行的内存模型：每个方法执行的同时创建栈帧，栈帧用来存储：<strong>局部（本地）变量表</strong>、操作数栈、动态链表、方法出口等</li>
-<li>方法的<strong>调用-&gt;完成</strong>对应着虚拟机栈的<strong>入栈-&gt;出栈</strong></li>
-<li>局部（本地）变量表存储下面的信息：<ul>
-<li>8大基本数据类型(int、long、float、short、char、boolean、byte、double)</li>
-<li>对象的引用：<strong>注意不是对象</strong>，可能是指向地址的指针|句柄|位置信息等</li>
-<li>返回地址：指向一条字节码指向的地址</li>
-</ul>
+<li><p>虚拟机栈是方法执行的内存模型：每个方法执行的同时创建栈帧，栈帧用来存储：<strong>局部（本地）变量表</strong>、操作数栈、动态链表、方法出口等</p>
 </li>
-<li>进入一个方法时，这个方法在栈帧上面分配的内存空间是确定的，<strong>如果线程请求的栈深度大于虚拟机所允许的深度，会报Stackoverflow异常</strong>，不过现在大多数虚拟机都允许动态扩展虚拟机栈，<strong>如果扩展时无法分配足够的内存，会报OutOfMemory异常</strong></li>
+<li><p>方法的<strong>调用-&gt;完成</strong>对应着虚拟机栈的<strong>入栈-&gt;出栈</strong></p>
+</li>
+<li><p>局部（本地）变量表存储下面的信息：</p>
+<p>(1)8大基本数据类型(int、long、float、short、char、boolean、byte、double)</p>
+<p>(2)对象的引用：<strong>注意不是对象</strong>，可能是指向地址的指针|句柄|位置信息等</p>
+<p>(3)返回地址：指向一条字节码指向的地址</p>
+</li>
+<li><p>进入一个方法时，这个方法在栈帧上面分配的内存空间是确定的，<strong>如果线程请求的栈深度大于虚拟机所允许的深度，会报Stackoverflow异常</strong>，不过现在大多数虚拟机都允许动态扩展虚拟机栈，<strong>如果扩展时无法分配足够的内存，会报OutOfMemory异常</strong></p>
+</li>
 </ol>
 <h4 id="1-1-3-本地方法栈"><a href="#1-1-3-本地方法栈" class="headerlink" title="1.1.3 本地方法栈"></a>1.1.3 本地方法栈</h4><ol>
 <li>本地方法栈为<strong>调用Native方法服务</strong>（虚拟机栈对应Java方法）</li>
@@ -231,15 +241,16 @@
 <li>堆内存时GC发生的区域</li>
 </ol>
 <h4 id="1-1-5-方法区"><a href="#1-1-5-方法区" class="headerlink" title="1.1.5 方法区"></a>1.1.5 方法区</h4><ol>
-<li>方法区用来存储：<ul>
-<li>虚拟机加载的类信息</li>
-<li>常量（用final修饰的）</li>
-<li>静态变量（用static修饰的）</li>
-<li>即时编译器编译后的代码</li>
-</ul>
+<li><p>方法区用来存储：</p>
+<p>(1)虚拟机加载的类信息</p>
+<p>(2)常量（用final修饰的）</p>
+<p>(3)静态变量（用static修饰的）</p>
+<p>(4)即时编译器编译后的代码</p>
 </li>
-<li>方法区在HotSpot规范中也叫做永生代</li>
-<li>方法区很少发生GC，一般<strong>用来回收无用的常量以及进行类型的卸载</strong></li>
+<li><p>方法区在HotSpot规范中也叫做永生代</p>
+</li>
+<li><p>方法区很少发生GC，一般<strong>用来回收无用的常量以及进行类型的卸载</strong></p>
+</li>
 </ol>
 <h4 id="1-1-6-运行时常量池"><a href="#1-1-6-运行时常量池" class="headerlink" title="1.1.6 运行时常量池"></a>1.1.6 运行时常量池</h4><ol>
 <li>运行时常量池属于方法区（毕竟为<strong>常量池</strong>）</li>
@@ -254,26 +265,32 @@
 <p><strong>如果没有对应的类先初始化类-&gt;分配内存-&gt;初始化为零值-&gt;虚拟机设置对象信息如GC分代哈希码等-&gt;程序员意志的初始化😘</strong></p>
 <p>当遇到一个new指令时：</p>
 <ol>
-<li>先去检查这个指令的参数能否在常量池中定位到一个类的符号引用，并检查符号所代表的类是否被加载/解析/初始化过。<strong>如果没有，先进行类加载过程</strong></li>
-<li>虚拟机为新生对象分配内存</li>
-<li>由于虚拟机中对象的创建是一个十分频繁的过程，如果仅仅时改变指针位置，面对高并发并非是线程安全的行为（比如给线程A分配好空间还没来得及修改指针，对象B又使用原来的指针分配内存）。所以一般虚拟机是这么解决的：<ul>
-<li>对分配内存的行为进行同步处理（CAS）</li>
-<li>或者是将内存分配的动作按照线程划分在不同的空间之中进行，即每个线程在Java堆中预先分配一小块内存，称为本地线程分配缓冲（TLAB）。（和ThreadLocal感觉有点像，Andymon的嘀咕）</li>
-</ul>
+<li><p>先去检查这个指令的参数能否在常量池中定位到一个类的符号引用，并检查符号所代表的类是否被加载/解析/初始化过。<strong>如果没有，先进行类加载过程</strong></p>
 </li>
-<li>内存分配完成后，虚拟机将分配的内存空间都<strong>初始化为零值</strong></li>
-<li>虚拟机对对象进行一定的设置，比如对象属于那个类/如何找到类的元数据信息/对象的哈希码/对象的GC分代信息，存放在对象头中（Object Header）</li>
-<li>这时从虚拟机的角度对象已经产生了，这个时候才执行程序员意志的初始化（<strong>执行new指令后会接着执行<init>方法</init></strong>）</li>
+<li><p>虚拟机为新生对象分配内存</p>
+</li>
+<li><p>由于虚拟机中对象的创建是一个十分频繁的过程，如果仅仅时改变指针位置，面对高并发并非是线程安全的行为（比如给线程A分配好空间还没来得及修改指针，对象B又使用原来的指针分配内存）。所以一般虚拟机是这么解决的：</p>
+<p>(1)对分配内存的行为进行同步处理（CAS）</p>
+<p>(2)或者是将内存分配的动作按照线程划分在不同的空间之中进行，即每个线程在Java堆中预先分配一小块内存，称为本地线程分配缓冲（TLAB）。（和ThreadLocal感觉有点像，Andymon的嘀咕）</p>
+</li>
+<li><p>内存分配完成后，虚拟机将分配的内存空间都<strong>初始化为零值</strong></p>
+</li>
+<li><p>虚拟机对对象进行一定的设置，比如对象属于那个类/如何找到类的元数据信息/对象的哈希码/对象的GC分代信息，存放在对象头中（Object Header）</p>
+</li>
+<li><p>这时从虚拟机的角度对象已经产生了，这个时候才执行程序员意志的初始化（<strong>执行new指令后会接着执行<init>方法</init></strong>）</p>
+</li>
 </ol>
 <h4 id="1-2-2-对象的内存布局"><a href="#1-2-2-对象的内存布局" class="headerlink" title="1.2.2 对象的内存布局"></a>1.2.2 对象的内存布局</h4><ol>
-<li>对象在内存中的存储分为三个区域：<strong>对象头、实例数据、对齐填充</strong></li>
-<li>对象头：<ul>
-<li>对象自身运行时的数据：MarkWord（Hash、GC年龄分代、锁状态、线程持有的锁等）</li>
-<li>类型指针（指向类元数据，确定对象属于哪个类），<strong>如果是数组数据，还有一块区域存储数组的长度</strong></li>
-</ul>
+<li><p>对象在内存中的存储分为三个区域：<strong>对象头、实例数据、对齐填充</strong></p>
 </li>
-<li>实例数据：字段等信息</li>
-<li>对齐填充：占位符，对象大小必须是8字节的整数倍，对其填充就是这个小作用</li>
+<li><p>对象头：</p>
+<p>(1)对象自身运行时的数据：MarkWord（Hash、GC年龄分代、锁状态、线程持有的锁等）</p>
+<p>(2)类型指针（指向类元数据，确定对象属于哪个类），<strong>如果是数组数据，还有一块区域存储数组的长度</strong></p>
+</li>
+<li><p>实例数据：字段等信息</p>
+</li>
+<li><p>对齐填充：占位符，对象大小必须是8字节的整数倍，对其填充就是这个小作用</p>
+</li>
 </ol>
 <h4 id="1-2-3-对象的访问定位"><a href="#1-2-3-对象的访问定位" class="headerlink" title="1.2.3 对象的访问定位"></a>1.2.3 对象的访问定位</h4><h5 id="句柄访问"><a href="#句柄访问" class="headerlink" title="句柄访问"></a>句柄访问</h5><ul>
 <li>在堆内存中分配一个句柄池，可以认为它是一个稳定区域</li>
@@ -322,16 +339,146 @@
 </ol>
 <h4 id="2-2-4-关于RC-Roots的补充（并不是不可达就是死亡）"><a href="#2-2-4-关于RC-Roots的补充（并不是不可达就是死亡）" class="headerlink" title="2.2.4 关于RC Roots的补充（并不是不可达就是死亡）"></a>2.2.4 关于RC Roots的补充（并不是不可达就是死亡）</h4><p>宣告一个对象死亡需要两个过程：</p>
 <ol>
-<li>如果对象进行可达性分析后发现没有能与GC Roots相连的引用链，那么它将会被第一次标记并进行一次筛选，<strong>筛选的条件是此对象是否有必要执行finalize()方法</strong>。如果当前对象没有覆盖finalize()方法，或者已经执行过一次，虚拟机则把他视为“没有必要执行”</li>
-<li>如果判断有必要执行finalize()方法的话。那么这个对象会先被放置在一个F-Queue之中，并在稍后虚拟机自己创建的Finalizer线程去执行它。但是，<strong>这里只是说是执行它，而不是承诺执行能执行结束</strong>。<ul>
-<li>如果一个对象在finalize()方法执行很慢或者陷入死循环的话会导致内存回收系统崩溃</li>
-<li>所以稍后GC会对F-Queue中的对象进行第二次小规模的标记，如果对象想要“自救”，那么只需要重新与GC Root上的对象进行建立联系，比如在finalize()方法中把自己的this赋值给某个类变量或者某个对象的成员变量，则就会逃离回收</li>
-</ul>
+<li><p>如果对象进行可达性分析后发现没有能与GC Roots相连的引用链，那么它将会被第一次标记并进行一次筛选，<strong>筛选的条件是此对象是否有必要执行finalize()方法</strong>。如果当前对象没有覆盖finalize()方法，或者已经执行过一次，虚拟机则把他视为“没有必要执行”</p>
 </li>
-<li>还需要注意一点的是，一个对象的finalize()方法只会被系统自动调用一次。也就是自救只能一次！</li>
-<li>不过finalize()方法其实没有try catch finally实用，这里只是证明，并不是GC Roots不可达就一定会被垃圾回收。</li>
+<li><p>如果判断有必要执行finalize()方法的话。那么这个对象会先被放置在一个F-Queue之中，并在稍后虚拟机自己创建的Finalizer线程去执行它。但是，<strong>这里只是说是执行它，而不是承诺执行能执行结束</strong>。</p>
+<p>(1)如果一个对象在finalize()方法执行很慢或者陷入死循环的话会导致内存回收系统崩溃</p>
+<p>(2)所以稍后GC会对F-Queue中的对象进行第二次小规模的标记，如果对象想要“自救”，那么只需要重新与GC Root上的对象进行建立联系，比如在finalize()方法中把自己的this赋值给某个类变量或者某个对象的成员变量，则就会逃离回收</p>
+</li>
+<li><p>还需要注意一点的是，一个对象的finalize()方法只会被系统自动调用一次。也就是自救只能一次！</p>
+</li>
+<li><p>不过finalize()方法其实没有try catch finally实用，这里只是证明，并不是GC Roots不可达就一定会被垃圾回收。</p>
+</li>
 </ol>
-<p>———————————-未完待续——————————————————————————————————————</p>
+<h4 id="2-2-5-方法区的回收"><a href="#2-2-5-方法区的回收" class="headerlink" title="2.2.5 方法区的回收"></a>2.2.5 方法区的回收</h4><p>方法区在Java内存模型中也叫做“永生代”，方法区很少发生垃圾回收，但也不会说不发生垃圾回收，方法区回收两部分内容：<strong>1、废弃常量 2、无用的类</strong></p>
+<p>何为无用的类，需要同时满足下面三个条件：</p>
+<ol>
+<li>该类的所有实例都被回收</li>
+<li>加载该类的ClassLoader已经被回收</li>
+<li>该类对应的java.lang.Class对象没有在任何地方被引用，也无法通过反射访问该类的方法。</li>
+</ol>
+<p><strong>Note</strong>：这里仅仅说明虚拟机可以对方法区的无用类进行回收，但并不是和对象一样，不使用了就一定回收。一般可以使用:-Xnoclassgc可以控制类会不会回收。</p>
+<h3 id="2-3-垃圾收集算法"><a href="#2-3-垃圾收集算法" class="headerlink" title="2.3 垃圾收集算法"></a>2.3 垃圾收集算法</h3><p>开门见山：</p>
+<ul>
+<li>标记-清除</li>
+<li>复制</li>
+<li>标记-整理</li>
+<li>分代收集</li>
+</ul>
+<h4 id="2-3-1-标记-清除算法"><a href="#2-3-1-标记-清除算法" class="headerlink" title="2.3.1 标记-清除算法"></a>2.3.1 标记-清除算法</h4><p>标记-清除算法很简单，大体可以分为标记和清除两个部分。先标记后清除。</p>
+<p>具体图示如下：</p>
+<img src="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190702101803.png" width="50%" height="50%" align="center">
+
+
+<p>优缺点为：</p>
+<ol>
+<li>实现简单</li>
+<li>内存空间碎片化，如果有大对象进来，很可能因为空间太碎了，明明剩余空间够但是还会触发GC</li>
+<li>效率低，标记和清除效率都不高</li>
+</ol>
+<h4 id="2-3-2-复制算法"><a href="#2-3-2-复制算法" class="headerlink" title="2.3.2 复制算法"></a>2.3.2 复制算法</h4><p>1、将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用过的内存空间一次清理掉。 </p>
+<p>2、<strong>这样使得每次都是对其中的一块进行内存回收，内存分配时也就不用考虑内存碎片等复杂情况，只要移动堆顶指针，按顺序分配内存即可，实现简单，运行高效。</strong></p>
+<img src="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190702102248.png" width="50%" height="50%" align="center">
+
+
+<h4 id="2-3-3-标记-整理算法"><a href="#2-3-3-标记-整理算法" class="headerlink" title="2.3.3 标记-整理算法"></a>2.3.3 标记-整理算法</h4><p>1、标记过程仍然与“标记-清除”算法一样</p>
+<p>2、后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向一端移动，然后直接清理掉端边界以外的内存。</p>
+<img src="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190702102429.png" width="50%" height="50%" align="center">
+
+<h4 id="2-3-4-分代收集"><a href="#2-3-4-分代收集" class="headerlink" title="2.3.4 分代收集"></a>2.3.4 分代收集</h4><p>分代收集其实不是一种特定的算法，而是执行GC过程的一个思路。根据对象的生命周期，我们可以将对象分为新生代和老年代。</p>
+<ul>
+<li>新生代朝生暮死，生命周期短，用复制算法保证效率</li>
+<li>老年代生命周期长，GC不频繁，对效率要求不高，一般使用标记-清除或者标记-整理算法</li>
+</ul>
+<h3 id="2-4-HotSpot中的垃圾收集算法的实现"><a href="#2-4-HotSpot中的垃圾收集算法的实现" class="headerlink" title="2.4 HotSpot中的垃圾收集算法的实现"></a>2.4 HotSpot中的垃圾收集算法的实现</h3><h4 id="2-4-1-枚举根节点"><a href="#2-4-1-枚举根节点" class="headerlink" title="2.4.1 枚举根节点"></a>2.4.1 枚举根节点</h4><p>首先要进行垃圾收集的话，最重要的就是对无用对象进行标记。但是首先需要考虑的是，一个大型的工程，对象的引用就可以达到好几百M，这样一个个遍历找的话，肯定会特别费时。其次，还体现在<strong>GC停顿</strong>上：</p>
+<p>GC停顿的意思是，当进行GC时，标记过程必须发生在一个快照，也就是，在标记对象是否存活，或者说GC Roots在寻找对象引用的过程必须将所有的进程全部停下，不能在分析可达性的时候发生引用关系的变化。这也是术语所说的“<strong>Stop The World”</strong>。</p>
+<p>在现在的虚拟机系统中，肯定不会让GC Roots一个个去遍历查找引用。而是通过<strong>OopMap</strong>把对象内什么位置偏移量是什么类型的数据计算出来，在JIT编译过程也会在特定位置记录下栈和寄存器哪些位置时引用。比如在这个对象内存位置的哪个偏移量存着别的对象指针的引用，这样准确知晓位置后，GC Roots的枚举将会迅速很多。</p>
+<h4 id="2-4-2安全点"><a href="#2-4-2安全点" class="headerlink" title="2.4.2安全点"></a>2.4.2安全点</h4><p>通过OopMap可以准确定位GC Roots的引用了，但是如果每一条指令都生成OopMap会占用大量的空间。所以HotSpot也不会这么做，它的做法是只在特定的点进行分析，这些位置称为<strong>“安全点”。</strong></p>
+<p>当程序执行到这个点的时候，才会停顿下来开始GC。安全点的选取的原则是：“是否能让程序长时间执行的特征”为标准。一般一条指令流不会太长，这种时候一般是方法调用、循环跳转、异常跳转等指令序列复用的情况。</p>
+<p>还有一个需要考虑的情况是，如何让线程在GC的时候都跑到最近的安全点暂停下来，一般有两种方式：</p>
+<ol>
+<li>抢占式中断（已经不用），GC发生时，所有线程都立即中断，如果不在安全点上，就恢复线程跑到最近的安全点上。</li>
+<li>主动式中断，当GC需要进行的时候，不主动干涉线程，而是设立一个标志，每个线程执行的时候都去轮询这个标志。如果发现中断标志为真则自己中断挂起。<strong>轮询点和安全点重合，还有就是新建对象分配内存的时候</strong>。</li>
+</ol>
+<h4 id="2-4-3安全区域"><a href="#2-4-3安全区域" class="headerlink" title="2.4.3安全区域"></a>2.4.3安全区域</h4><p>OopMap和安全点已经能满足大部分情况了，但是还是有纰漏，就是如果一个线程处于Blocked或者Sleep状态的话，这样线程无法响应JVM的中断请求。这种情况就需要安全区域。</p>
+<p>安全区域其实是安全点的延伸，安全区域是一段代码执行片段之中，引用关系不会发生变化，这个区域任何时候开始GC都是安全的。</p>
+<p>当线程执行到安全区域里面时，首先标记自己已经进入了安全区域，这样在JVM将要进行GC时，就不会管进入安全区域的线程了。当线程要离开安全区域时，他要检查系统是否完成了根节点枚举（或者是GC过程），如果完成了就继续执行，否则挂起知道GC执行完成。</p>
+<h3 id="2-5-垃圾收集器"><a href="#2-5-垃圾收集器" class="headerlink" title="2.5 垃圾收集器"></a>2.5 垃圾收集器</h3><p>垃圾收集器分为其中，具体工作在哪个区域，具体直接的关联如下所示：</p>
+<img src="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190702110048.png" width="60%" height="60%" align="center">
+
+<p>其中需要注意的点为：</p>
+<ol>
+<li>除了G1收集器同时工作在老年代和新生代，其他的只工作在一个区域</li>
+<li>如果不用G1，那么需要多种GC收集器进行配合</li>
+</ol>
+<h4 id="2-5-1-Serial收集器-包括Serial-Old，Old工作在老年代"><a href="#2-5-1-Serial收集器-包括Serial-Old，Old工作在老年代" class="headerlink" title="2.5.1 Serial收集器(包括Serial Old，Old工作在老年代)"></a>2.5.1 Serial收集器(包括Serial Old，Old工作在老年代)</h4><p>特点：</p>
+<ol>
+<li>单线程GC</li>
+<li>GC过程需要Stop The World</li>
+<li>优点是在单线程的情况下简单高效</li>
+<li>对于Client下的虚拟机是个很好的选择</li>
+</ol>
+<img src="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190702110815.png" width="60%" height="60%" align="center">
+
+
+
+<h4 id="2-5-2-ParNew收集器"><a href="#2-5-2-ParNew收集器" class="headerlink" title="2.5.2 ParNew收集器"></a>2.5.2 ParNew收集器</h4><p>ParNew可以当作Serial的多线程版本其他的没啥区别，只有它和Serial可以和CMS收集器合作。</p>
+<ol>
+<li>ParNew是多线程的收集器</li>
+<li>单CPU状态下并不比Serial好用，可以通过-XX:ParallelGCThreads来限制GC线程数</li>
+</ol>
+<img src="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190702112307.png" width="60%" height="60%" align="center">
+
+<h4 id="2-5-3-Parallel-Scavenge-包括Parallel-Scavenge-Old"><a href="#2-5-3-Parallel-Scavenge-包括Parallel-Scavenge-Old" class="headerlink" title="2.5.3 Parallel Scavenge(包括Parallel Scavenge Old)"></a>2.5.3 Parallel Scavenge(包括Parallel Scavenge Old)</h4><p>它也是在新生代使用复制算法的垃圾收集器，但是它关注的不是尽量缩短GC时间，而是控制吞吐量。</p>
+<p>吞吐量=运行用户代码时间/（运行用户代码时间+GC时间）。比如虚拟机运行了100s，GC时间为1s，则吞吐量为99%。</p>
+<p>控制吞吐量还是很有意义的，比如有的垃圾收集器，把垃圾收集时间控制到了5ms，但是50ms就会发生一次GC，但是Parallel Scavenge可能每次垃圾收集时间10ms，但是200ms才会进行一次GC。</p>
+<p>Parallel Scavenge通过-XX:MaxGCPauseMillis控制最大垃圾收集停顿时间和-XX:GCTimeRatio控制吞吐量。</p>
+<h4 id="2-5-4-CMS收集器"><a href="#2-5-4-CMS收集器" class="headerlink" title="2.5.4 CMS收集器"></a>2.5.4 CMS收集器</h4><p>CMS收集器是一种以最短回收停顿时间为目标，是真正意义上第一个并发GC收集器。它基于“标记-清除”，具体步骤如下：</p>
+<ul>
+<li>初始标记（停顿）</li>
+<li>并发标记</li>
+<li>重新标记（停顿）</li>
+<li>并发清除</li>
+</ul>
+<p>在前面说过，无论GC再完美，在标记RC Roots关联的时候也是Stop The World的。初始标记是标记RC Roots能<strong>直接</strong>关联到的对象，并发标记是RC Roots在Chain中Tracing的过程，重新标记是修正并发标记期间产生变动那一部分对象的那一部分记录，总体来说初始标记和重新标记的时间都很短，比起并发标记和并发清除都短很多。</p>
+<img src="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190702113843.png" width="60%" height="60%" align="center">
+
+<p>CMS的缺点是以下三个：</p>
+<ul>
+<li>CMS对CPU资源敏感。CMS默认的回收线程数是（CPU数+3）/4。当CPU不足4个时，CMS对用户程序的影响可能很大。</li>
+<li>CMS无法处理浮动垃圾，因为垃圾收集阶段还有新的垃圾产生，所以CMS不能等到老年代满了才处理，在JDK1.6中CMS启动的阈值为92%，如果CMS运行期间预留的内存无法满足程序需要，就会进行一次“Concurrent Mode Failure”，然后启动后备方案-临时启用Serial Old</li>
+<li>由于是基于“标记-清除”算法，所以会产生大量空间碎片，对大对象不友好。</li>
+</ul>
+<h4 id="2-5-5-G1收集器"><a href="#2-5-5-G1收集器" class="headerlink" title="2.5.5 G1收集器"></a>2.5.5 G1收集器</h4><p>G1收集器是面向服务端的收集器，当时开发这个收集器的目的就是为了取代CMS收集器的。与其他的收集器相比，有如下的特点：</p>
+<ul>
+<li>并行与并发</li>
+<li>分代收集</li>
+<li>空间整合：G1整体是基于标记-整理的方法去进行垃圾收集的，在局部（两个Region之间使用复制算法）</li>
+<li>可预测的停顿：除了像CMS一样支持低停顿，还建立了可预测的停顿时间模型，能让使用者明确指定在一个时间长度为M毫秒的时间片段内，消耗在垃圾收集的时间不得超过N毫秒</li>
+</ul>
+<p>使用G1收集器的时候，Java的堆内存布局和其他的不一样，他将整个Java堆划分为多个相同大小的Region，虽然还保留着新生代和老年代，但是他们不再是物理隔离的了，他们都是一部分Region的集合。</p>
+<p>G1收集器之所以能预测停顿，是因为它能有计划的避免在某个时间段整个Java堆进行全区域的GC，G1跟踪各个Region里面垃圾堆积的价值大小，在后台维护一个优先列表，每次根据允许的收集时间，回收价值最大的Region。</p>
+<p>但是会遇到这样的问题，这样将内存化整为零，那么各个Region不可能是独立的啊，因为就算这个对象在这个Region里面，他绝对可以被其他的Region的对象引用。还有在别的垃圾收集器也会有新生代和老年代引用的问题，如果你要进行一次minorGC，那么应该也要扫描老年代，但是这样的话Minor GC的效率又会大打折扣。</p>
+<p>面对上面的问题，虚拟机都是使用Remembered Set避免全堆扫描的。G1每个Region都有一个Remembered Set对应，虚拟机发现对Reference类型进行写操作时，会产生一个Write Barrier暂时中断写操作，检查Reference引用的对象是否处于不同的Region之中（新生代则检查引用的对象是否在老年代里），如果是，则通过CardTable把相关引用信息记录到被引用对象所在Region的Remembered Set之中。当进行内存回收时，在GC的根节点枚举加入Rememberd Set即可保证不进行全堆扫描也不会有遗漏。</p>
+<p>如果不算上维护Remembered Set，G1 GC有下面几步：</p>
+<ul>
+<li>初始标记</li>
+<li>并发标记</li>
+<li>最终标记（和CMS的重新标记类似，但是这里会把上一步对象的引用变化记录到Remembered Set Logs里面，并将数据合并到Rememberd Set中）</li>
+<li>筛选回收（对各个区域的垃圾价值进行评估，根据用户所期望的停顿时间指定回收计划）</li>
+</ul>
+<img src="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190702141813.png" width="60%" height="60%" align="center">
+
+
+
+<h3 id="2-6-内存分配和回收策略"><a href="#2-6-内存分配和回收策略" class="headerlink" title="2.6 内存分配和回收策略"></a>2.6 内存分配和回收策略</h3><p>1、堆上分配</p>
+<p>2、对象主要分配在新生代Eden区（如果开启了本地线程分配缓冲则优先在TLAB上分配）</p>
+<p>3、大对象直接进入老年代（很长的字符串或者数组）</p>
+<p>4、长期存活的对象进入老年代。虚拟机为每个对象定义了一个Age，对象在Eden区出生并且经过第一次Minor GC还存活，并且能被Survivor收纳的话，则转移到生存区，并将Age设为1，每熬过一次GC年龄加一，默认到了15岁可以进入老年代，但是可以通过参数-XX:MaxTenuringThreshold来设置</p>
+<p>5、当Survivor空间中年龄相同的对象大于Survivor空间的一半，年龄大于等于该年龄的都进入老年区</p>
+<p>6、发生Minor GC时，会先扫描老年代空余连续内存的大小，如果大于新生代所有对象总空间，说明是安全的。如果不成立，虚拟机会查看是否允许担保失败。如果允许，则进行一次冒险的尝试Minor GC。不允许的话，进行一次Full GC。何为冒险呢？如果你的新生代对象经过一次Minor GC，还存活特别多，Survivor空间不够，则会用老年代的空间进行担保。老年代腾出的空间以之前每一次回收晋升到老年代对象容量的平均大小作为经验值。但是如果Minor GC存活下的对象数量激增，还是会发生担保失败，这样在失败后会触发一次Full GC</p>
+<p>7、Full GC因为涉及到标记-整理或者标记-清除，所以很费时间和CPU，尽量避免Full GC过于频繁也是程序设计的法则。</p>
+<p>———————————–to be continued————————————————————————————————</p>
 
       
 
@@ -422,7 +569,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/28/Java虚拟机总结-周志明-1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/02/Java虚拟机总结-周志明-1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -436,18 +583,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/06/30/补番k-on的感受/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          补番k-on的感受
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/06/27/剑值offer参考答案java版（随时更新）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">剑值offer参考答案java版（随时更新）</div>
+    <a href="/2019/07/01/将maven配置为阿里云仓库/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">将maven配置为阿里云仓库</div>
       <i class="icon-circle-right"></i>
     </a>
   
