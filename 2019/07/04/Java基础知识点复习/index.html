@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | Andymon的二点五次元</title>
+  <title>Java基础知识点复习 | Andymon的二点五次元</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Andymon的二点五次元">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="此文为Andymon复习面试时总结的Java基础的知识点，说来惭愧，真的啊，基础真的很重要！！！现在的就业形势真的确实不太好，基础一定不能落下了！！！">
+<meta name="keywords" content="技术">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基础知识点复习">
+<meta property="og:url" content="http://yoursite.com/2019/07/04/Java基础知识点复习/index.html">
 <meta property="og:site_name" content="Andymon的二点五次元">
+<meta property="og:description" content="此文为Andymon复习面试时总结的Java基础的知识点，说来惭愧，真的啊，基础真的很重要！！！现在的就业形势真的确实不太好，基础一定不能落下了！！！">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/timg.jpg">
+<meta property="og:updated_time" content="2019-07-04T08:13:45.673Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Andymon的二点五次元">
+<meta name="twitter:title" content="Java基础知识点复习">
+<meta name="twitter:description" content="此文为Andymon复习面试时总结的Java基础的知识点，说来惭愧，真的啊，基础真的很重要！！！现在的就业形势真的确实不太好，基础一定不能落下了！！！">
+<meta name="twitter:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/timg.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Andymon的二点五次元" type="application/atom+xml">
   
@@ -167,36 +174,200 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Java基础知识点复习" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Java基础知识点复习
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/04/Java基础知识点复习/" class="archive-article-date">
+
+        
+        <a href="/2019/07/04/Java基础知识点复习/" class="archive-article-date">
   	<time datetime="2019-07-04T01:23:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-04</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/04/Java基础知识点复习/">Java基础知识点复习</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>此文为Andymon复习面试时总结的Java基础的知识点，说来惭愧，真的啊，基础真的很重要！！！现在的就业形势真的确实不太好，基础一定不能落下了！！！</p>
+<img src="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/timg.jpg" width="35%" height="35%" align="center">
 
-        <div class="article-info info-on-right">
-          
+
+
+<a id="more"></a>
+
+<h3 id="什么是面向对象编程："><a href="#什么是面向对象编程：" class="headerlink" title="什么是面向对象编程："></a>什么是面向对象编程：</h3><p>面向对象编程是一种编程思想，世间万物都可当作是一个Object，编程着只需要去关注具体对象的实现。其中面向对象编程思想有如下的优点：</p>
+<ul>
+<li>代码开发模块化，易于扩展和维护</li>
+<li>代码复用性强</li>
+<li>增强代码的可靠性和灵活性</li>
+<li>增加代码的可读性</li>
+</ul>
+<h3 id="面向对象编程的特点：封装、继承、多态、抽象（我们很多书上看到的没有抽象）"><a href="#面向对象编程的特点：封装、继承、多态、抽象（我们很多书上看到的没有抽象）" class="headerlink" title="面向对象编程的特点：封装、继承、多态、抽象（我们很多书上看到的没有抽象）"></a>面向对象编程的特点：封装、继承、多态、抽象（我们很多书上看到的没有抽象）</h3><h4 id="封装："><a href="#封装：" class="headerlink" title="封装："></a>封装：</h4><p>封装的作用是通过赋予对象不同的访问权限，从而给对象提供隐藏自生内部特征和行为的特性（面试的时候主要扯到面向对象设计原则对修改关闭对扩展开放应该也行，然后提到getter/setter相关）</p>
+<p>优点：</p>
+<ul>
+<li>通过隐藏熟悉来保护对象内部状态</li>
+<li>提高了代码的可复用性和可维护性，因为对象可以被单独的改变或者扩展</li>
+<li>禁止对象之间的不良交互</li>
+</ul>
+<h4 id="继承："><a href="#继承：" class="headerlink" title="继承："></a>继承：</h4><p>提高了对象的重用性，在不修改类的情况下也可以给类增加新的功能</p>
+<h4 id="多态："><a href="#多态：" class="headerlink" title="多态："></a>多态：</h4><p>多态一般分为编译时多态和运行时多态。编译时多态则为方法的重载（overload）。运行时多态一般为：继承、重写、还有向上转型</p>
+<h4 id="抽象："><a href="#抽象：" class="headerlink" title="抽象："></a>抽象：</h4><p>提取现实世界中某事物的关键特性，为该事物构建模型的过程。得到的抽象模型中一般包含：属性（数据）和操作（行为）。这个抽象模型我们称之为类，对类进行实例化得到对象。</p>
+<h4 id="番外1："><a href="#番外1：" class="headerlink" title="番外1："></a>番外1：</h4><p>抽象类是Java 支持创建只暴漏接口而不包含方法实现的抽象的类。这种抽象技术的主要目的是把<strong>类的行为和实现细节分离开</strong>。</p>
+<h4 id="番外2：重载和重写的区别"><a href="#番外2：重载和重写的区别" class="headerlink" title="番外2：重载和重写的区别"></a>番外2：重载和重写的区别</h4><ul>
+<li><strong>重载是编译时的多态，重写是运行时的多态</strong></li>
+<li>重载是一个类中的不同的两个方法或者多个方法的名字相同但是传入的参数不同的情况，或者顺序不同也可以。但是只有返回值不同的话不能重载</li>
+<li>重写就是子类覆盖父类的方法，但是父类方法用final修饰，子类不能重写</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>区别点</th>
+<th align="center">重载</th>
+<th align="center">重写</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>定义</td>
+<td align="center">方法名相同，参数类型和个数不同</td>
+<td align="center">方法名，参数个数和类型都相同</td>
+</tr>
+<tr>
+<td>权限</td>
+<td align="center">没要求</td>
+<td align="center">子类的方法权限不能更严格（父类为default，子类可以为public，不能为private）</td>
+</tr>
+<tr>
+<td>范围</td>
+<td align="center">发生在一个类中</td>
+<td align="center">发生在不同的类</td>
+</tr>
+<tr>
+<td>异常处理</td>
+<td align="center"></td>
+<td align="center">子类不能比父类抛出更多的异常</td>
+</tr>
+</tbody></table>
+<h3 id="JDK、JVM和JRE的关系"><a href="#JDK、JVM和JRE的关系" class="headerlink" title="JDK、JVM和JRE的关系"></a>JDK、JVM和JRE的关系</h3><p><strong>JDK</strong>为Java开发工具包，其中包括开发工具和JRE。开发工具包括：</p>
+<ul>
+<li>javac用于编译</li>
+<li>java用来运行程序</li>
+<li>jar用来打包</li>
+<li>javadoc生成文档</li>
+</ul>
+<p>所以JDK是包括JRE的。</p>
+<p><strong>JRE</strong>是Java运行环境，含有Java虚拟机(JVM)和一些必要的类库。</p>
+<p>所以JRE是包括JVM的。</p>
+<p><strong>JVM</strong>则是java虚拟机，为Class的字节码文件提供运行环境支持。</p>
+<h3 id="JDK8的新特性"><a href="#JDK8的新特性" class="headerlink" title="JDK8的新特性"></a>JDK8的新特性</h3><p>—————–篇幅较多待完善———————————-</p>
+<h2 id="什么是字节码？采用字节码的最大好处是什么？"><a href="#什么是字节码？采用字节码的最大好处是什么？" class="headerlink" title="什么是字节码？采用字节码的最大好处是什么？"></a>什么是字节码？采用字节码的最大好处是什么？</h2><h4 id="什么是字节码"><a href="#什么是字节码" class="headerlink" title="什么是字节码"></a>什么是字节码</h4><blockquote>
+<p>这个问题，面试官可以衍生提问，Java 是编译执行的语言，还是解释执行的语言。</p>
+</blockquote>
+<p>Java中引入了虚拟机的概念，就是在机器和编译程序之间加入了一层抽象的虚拟的机器，这个虚拟机在任何平台上都提供给编译程序一个共同的接口。</p>
+<p>所以编译只需要面向虚拟机，生成虚拟机能理解的代码，然后由解释器来将虚拟机代码转化为特定系统的机器码执行。在Java中，<strong>这种供虚拟机理解的代码叫做字节码（即后缀为.class文件）</strong>，不面向任何的系统，只面向Java虚拟机。</p>
+<p>每一种平台的解释器是不同的，但是实现的虚拟机是相同的。Java 源程序经过编译器编译后变成字节码，<strong>字节码由虚拟机解释执行</strong>，<strong>虚拟机将每一条要执行的字节码送给解释器，解释器将其翻译成特定机器上的机器码</strong>，然后在特定的机器上运行。<strong>这也就是解释了 Java 的编译与解释并存的特点</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Java 源代码</span><br><span class="line">=&gt; 编译器 =&gt; JVM 可执行的 Java 字节码(即虚拟指令)</span><br><span class="line">=&gt; JVM =&gt; JVM 中解释器 =&gt; 机器可执行的二进制机器码 =&gt; 程序运行</span><br></pre></td></tr></table></figure>
+
+<h4 id="字节码的好处"><a href="#字节码的好处" class="headerlink" title="字节码的好处"></a>字节码的好处</h4><p>一次编译，任何地方都能运行。针对解释型语言能解决比解释型语言执行效率低的问题，同时又有解释型语言可以移植的特点。</p>
+<blockquote>
+<p>解释型语言，比如PHP、Python，在运行的时候将程序翻译成机器语言，不需要在运行前编译，在运行的时候再翻译。有专门的解释器负责翻译。缺点是每次执行就要翻译一次，效率较低。</p>
+</blockquote>
+<h3 id="Java中的数据类型"><a href="#Java中的数据类型" class="headerlink" title="Java中的数据类型"></a>Java中的数据类型</h3><p>Java中的数据类型包括基础类型和引用类型。</p>
+<h4 id="基础类型："><a href="#基础类型：" class="headerlink" title="基础类型："></a>基础类型：</h4><p>整数型：byte int short long（整数默认为int，long类型要加l后缀）</p>
+<p>字符型：char</p>
+<p>浮点型：float double（小数默认使用double，float要加f后缀）</p>
+<p>布尔型：boolean</p>
+<p><strong>引用类型</strong>声明的变量是指该变量在内存中实际存储的是一个引用地址，<strong>实体在堆中</strong>。基础数据类型在虚拟机栈（方法执行的出入口）里面。</p>
+<ul>
+<li>引用类型包括类、接口、数组等</li>
+<li>String是引用类型不是基本类型</li>
+</ul>
+<p><strong>值传递和引用传递</strong>：</p>
+<ul>
+<li>值传递面对的是基本数据类型，引用传递应用的是引用类型的变量</li>
+<li>值传递会把值直接赋值给那个内存空间，所以获得的是那个值的一个副本，而引用传递会指向堆中的一个地址</li>
+<li>String作为引用类型，但是由于String是final的，所以只要你对String进行修改，那么会在堆中生成一个新的String对象，所以不要在很多情况中结果和基础数据类型相同就把它当作值传递。</li>
+<li>————–常量池相关的会后面补充———————-</li>
+</ul>
+<h4 id="是否可以在-static-环境中访问非-static-变量？"><a href="#是否可以在-static-环境中访问非-static-变量？" class="headerlink" title="是否可以在 static 环境中访问非 static 变量？"></a>是否可以在 static 环境中访问非 static 变量？</h4><p>不可以，一个变量是static的话，那么它属于一个类的。但是非static的变量是属于实例的，必须有一个实例当作访问入口。</p>
+<h4 id="char-型变量中能不能存贮一个中文汉字？为什么？"><a href="#char-型变量中能不能存贮一个中文汉字？为什么？" class="headerlink" title="char 型变量中能不能存贮一个中文汉字？为什么？"></a>char 型变量中能不能存贮一个中文汉字？为什么？</h4><p>可以，因为char在java语言中刚好是两个字节，中文汉字也是两个字节。而且Java默认使用Unicode编码，其中一个Unicode是16位所以占用两个字节，所以char中可以存储汉字。</p>
+<h4 id="各个基础变量的大小："><a href="#各个基础变量的大小：" class="headerlink" title="各个基础变量的大小："></a>各个基础变量的大小：</h4><p>byte 1字节</p>
+<p>short 2字节</p>
+<p>int float 4个字节</p>
+<p>long double 8个字节</p>
+<p>boolean只占用1bit，可以使用1bit来存储，但是具体大小没有具体规定。JVM在编译时将boolean存为int型，其中1代表true，0代表false。</p>
+<h3 id="String、StringBuffer、StringBuilder的区别："><a href="#String、StringBuffer、StringBuilder的区别：" class="headerlink" title="String、StringBuffer、StringBuilder的区别："></a>String、StringBuffer、StringBuilder的区别：</h3><p>String是只读字符串，意味着String引用的字符是无法改变的。</p>
+<blockquote>
+<p>每次对String类型进行改变的时候，都是生成一个新的String对象，然后将指针指向新的对象的地址</p>
+</blockquote>
+<p>StringBuilder|StringBuffer表示字符串对象可以直接进行修改。<strong>其中StringBuilder是单线程的</strong>，没有使用Synchronized关键字修饰，效率比StringBuffer高。</p>
+<blockquote>
+<p>StringBuilder和StringBuffer都是对对象本身进行操作，而不是生成新的然后修改引用</p>
+</blockquote>
+<h3 id="String-s-new-String-“xyz”-会创建几个对象？"><a href="#String-s-new-String-“xyz”-会创建几个对象？" class="headerlink" title="String s = new String(“xyz”) 会创建几个对象？"></a><strong>String s = new String(“xyz”)</strong> 会创建几个对象？</h3><p>这个问题其实有关JVM了。这么解释：</p>
+<p>先给出结论：如果有new关键字，就一定要在堆内存中分配空间，如果没有new关键字，就是运行时常量池的工作。</p>
+<p>1、首先，记不记得在Java内存区域里面，有个地方叫方法区，方法区用于存储类信息和常量，然后，方法区有个区域叫做<strong>“运行时常量池”</strong>。</p>
+<p>2、然后呢，如果你的运行时常量池里面已经有了“xyz”这个对象的话，那么运行时常量池就不要动了。如果没有，则要创建一个对象。</p>
+<p>3、然后遇到了new运算符，还得在堆内存里创建一个对象。这样就是两个对象了，但是指向的是堆里的对象。</p>
+<p>下面还有相关的习题：</p>
+<p>1、String s = “xyz”;//如果运行时常量池有这个对象，则不创建对象，不然，直接在运行时常量池里面创建对象</p>
+<p>2、String s = “123”+”456”;//在JVM编译时会自动把它合成为一个”123456”的对象，还是在常量池里</p>
+<p>3、String s = “123”+new String(“456”);//常量池有“123”和“456”。堆内存有“456”然后还有“123456”对象。</p>
+<h3 id="自动装拆箱的相关问题"><a href="#自动装拆箱的相关问题" class="headerlink" title="自动装拆箱的相关问题"></a>自动装拆箱的相关问题</h3><p>自动装拆箱其实就是基本类型和引用类型的相互转换。</p>
+<h4 id="为什么要转换？"><a href="#为什么要转换？" class="headerlink" title="为什么要转换？"></a>为什么要转换？</h4><p>jdk5之前，集合类型不能直接放入基础数据类型，因为集合只接收对象。这样的话需要我们将基础对象先封装为Integer等，然后再放入集合，使得代码有些繁琐。为了使代码简练，jdk5引入了自动装拆箱。</p>
+<h4 id="int和Integer的区别？"><a href="#int和Integer的区别？" class="headerlink" title="int和Integer的区别？"></a>int和Integer的区别？</h4><ul>
+<li>int是基本的数据类型</li>
+<li>Integer是包装类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer x = <span class="number">2</span>;     <span class="comment">// 装箱</span></span><br><span class="line"><span class="keyword">int</span> y = x;         <span class="comment">// 拆箱</span></span><br></pre></td></tr></table></figure>
+
+<p>int和Integer的相互转化如上代码所示。两者可以相互赋值。</p>
+<h4 id="缓存池"><a href="#缓存池" class="headerlink" title="缓存池"></a>缓存池</h4><p>new Integer(123)和Integer.valueOf(123)的区别在于：</p>
+<ul>
+<li>new会每次都创建一个新对象</li>
+<li>Integer.valueOf会使用缓存池中的对象，多次调用会返回一个对象的引用。</li>
+</ul>
+<p>valueOf() 方法的实现比较简单，就是先判断值是否在缓存池中，如果在的话就直接返回缓存池的内容。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Integer <span class="title">valueOf</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high)</span><br><span class="line">        <span class="keyword">return</span> IntegerCache.cache[i + (-IntegerCache.low)];</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Integer(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 Java 8 中，Integer 缓存池的大小默认为 -128~127。</p>
+<p>编译器会在自动装箱过程调用 valueOf() 方法，因此多个值相同且值在缓存池范围内的 Integer 实例使用自动装箱来创建，那么就会引用相同的对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Integer m = <span class="number">123</span>;</span><br><span class="line">Integer n = <span class="number">123</span>;</span><br><span class="line">System.out.println(m==n);<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">Integer m1 = <span class="number">128</span>;</span><br><span class="line">Integer m2 = <span class="number">128</span>;</span><br><span class="line">System.out.println(m1 == m2);<span class="comment">//false</span></span><br><span class="line"></span><br><span class="line">Integer m3 = Integer.valueOf(<span class="number">100</span>);</span><br><span class="line">Integer n3 = Integer.valueOf(<span class="number">100</span>);</span><br><span class="line">System.out.println(m3==n3);<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">Integer m4 = <span class="keyword">new</span> Integer(<span class="number">120</span>);</span><br><span class="line">Integer n4 = <span class="keyword">new</span> Integer(<span class="number">120</span>);</span><br><span class="line">System.out.println(m4==n4);<span class="comment">//fasle</span></span><br><span class="line"></span><br><span class="line">Integer m5 = <span class="keyword">new</span> Integer(<span class="number">120</span>);</span><br><span class="line">Integer n5 = Integer.valueOf(<span class="number">120</span>);</span><br><span class="line">System.out.println(m5==n5);<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -208,364 +379,128 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/04/Java基础知识点复习/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/02/Java虚拟机总结-周志明-1/" class="archive-article-date">
-  	<time datetime="2019-07-02T01:31:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-02</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/02/Java虚拟机总结-周志明-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java虚拟机总结(周志明)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/02/Java虚拟机总结-周志明-1/">Java虚拟机总结(周志明)</a>
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
     
+    <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NDg4My8yMTQwNA==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/01/将maven配置为阿里云仓库/" class="archive-article-date">
-  	<time datetime="2019-07-01T14:32:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-01</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/01/将maven配置为阿里云仓库/">将maven配置为阿里云仓库</a>
-    </h1>
+  
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/01/Git是什么鬼以及有啥用/" class="archive-article-date">
-  	<time datetime="2019-07-01T01:59:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/01/Git是什么鬼以及有啥用/">Git是什么鬼以及有啥用（参考廖雪峰的教程，自己写的总结，不包括分支管理）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/30/补番k-on的感受/" class="archive-article-date">
-  	<time datetime="2019-06-30T10:23:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/30/补番k-on的感受/">补番k-on的感受</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">二次元</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/27/剑值offer参考答案java版（随时更新）/" class="archive-article-date">
-  	<time datetime="2019-06-27T12:24:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/27/剑值offer参考答案java版（随时更新）/">剑值offer参考答案java版（随时更新）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">编程题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/27/剑指offer面试题32/" class="archive-article-date">
-  	<time datetime="2019-06-27T12:03:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/27/剑指offer面试题32/">剑指offer面试题32</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">编程题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/27/剑指offer面试题31/" class="archive-article-date">
-  	<time datetime="2019-06-27T11:34:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/27/剑指offer面试题31/">剑指offer面试题31</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">编程题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/27/剑指offer面试题30/" class="archive-article-date">
-  	<time datetime="2019-06-27T10:57:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/27/剑指offer面试题30/">剑指offer面试题30</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">编程题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/27/剑指offer面试题29/" class="archive-article-date">
-  	<time datetime="2019-06-27T08:37:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/27/剑指offer面试题29/">剑指offer面试题29</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">编程题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="page-number" href="/archives/2019/page/3/">3</a><a class="extend next" rel="next" href="/archives/2019/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -595,8 +530,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
