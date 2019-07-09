@@ -8,21 +8,21 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Java集合复习 | Andymon的二点五次元</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="集合最常见的面试无非是Collection和Map。也就是List、Set、Queue、Map以及响应的原理会问的比较多。  ArrayList实现12public class ArrayList&amp;lt;E&amp;gt; extends AbstractList&amp;lt;E&amp;gt;        implements List&amp;lt;E&amp;gt;, RandomAccess, Cloneable, java">
+  <meta name="description" content="集合最常见的面试无非是Collection和Map。也就是List、Set、Queue、Map以及响应的原理会问的比较多。">
 <meta name="keywords" content="技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java集合复习">
 <meta property="og:url" content="http://yoursite.com/2019/07/07/Java集合复习/index.html">
 <meta property="og:site_name" content="Andymon的二点五次元">
-<meta property="og:description" content="集合最常见的面试无非是Collection和Map。也就是List、Set、Queue、Map以及响应的原理会问的比较多。  ArrayList实现12public class ArrayList&amp;lt;E&amp;gt; extends AbstractList&amp;lt;E&amp;gt;        implements List&amp;lt;E&amp;gt;, RandomAccess, Cloneable, java">
+<meta property="og:description" content="集合最常见的面试无非是Collection和Map。也就是List、Set、Queue、Map以及响应的原理会问的比较多。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190707153939.png">
 <meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190709002932.png">
 <meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190709192612.png">
-<meta property="og:updated_time" content="2019-07-09T11:30:44.426Z">
+<meta property="og:updated_time" content="2019-07-09T11:46:35.143Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java集合复习">
-<meta name="twitter:description" content="集合最常见的面试无非是Collection和Map。也就是List、Set、Queue、Map以及响应的原理会问的比较多。  ArrayList实现12public class ArrayList&amp;lt;E&amp;gt; extends AbstractList&amp;lt;E&amp;gt;        implements List&amp;lt;E&amp;gt;, RandomAccess, Cloneable, java">
+<meta name="twitter:description" content="集合最常见的面试无非是Collection和Map。也就是List、Set、Queue、Map以及响应的原理会问的比较多。">
 <meta name="twitter:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190707153939.png">
   
     <link rel="alternative" href="/atom.xml" title="Andymon的二点五次元" type="application/atom+xml">
@@ -198,6 +198,8 @@
       
         <p>集合最常见的面试无非是Collection和Map。也就是List、Set、Queue、Map以及响应的原理会问的比较多。</p>
 <p><img src="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190707153939.png" alt></p>
+<a id="more"></a>
+
 <h2 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h2><h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">        <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">RandomAccess</span>, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br></pre></td></tr></table></figure>
 
 <p>通过数组存储数据（毕竟实现了RandomAccess），数组的默认大小是10</p>
