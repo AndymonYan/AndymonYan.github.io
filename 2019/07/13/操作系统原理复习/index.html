@@ -6,22 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>剑指offer面试题18 | Andymon的二点五次元</title>
+  <title>操作系统原理复习之线程进程 | Andymon的二点五次元</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="要求： 题目要求：给定一个有序链表，比如1-2-3-4-4-5-5-6，去除其重复的Node，重复的Node全部删去，只要Single的哈哈 编程语言：Java 思考：看上去只是一个简单的链表的题，到底有啥玄机呢？其实需要注意三点：  第一，链表是有序的，所以重复的肯定在一块儿； 第二，重复的全部删除有点烦人，如果只留一个会很简单 第三，注意特殊情况，比如链表的节点全部为相同的数的时候">
-<meta name="keywords" content="编程题">
+  <meta name="description" content="操作系统原理也是面试中比较重要的一部分，操作系统原理主要考察的是对进程线程等的理解，锁的管理，内存管理等知识">
+<meta name="keywords" content="技术">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指offer面试题18">
-<meta property="og:url" content="http://yoursite.com/2019/06/26/剑指offer面试题18/index.html">
+<meta property="og:title" content="操作系统原理复习之线程进程">
+<meta property="og:url" content="http://yoursite.com/2019/07/13/操作系统原理复习/index.html">
 <meta property="og:site_name" content="Andymon的二点五次元">
-<meta property="og:description" content="要求： 题目要求：给定一个有序链表，比如1-2-3-4-4-5-5-6，去除其重复的Node，重复的Node全部删去，只要Single的哈哈 编程语言：Java 思考：看上去只是一个简单的链表的题，到底有啥玄机呢？其实需要注意三点：  第一，链表是有序的，所以重复的肯定在一块儿； 第二，重复的全部删除有点烦人，如果只留一个会很简单 第三，注意特殊情况，比如链表的节点全部为相同的数的时候">
+<meta property="og:description" content="操作系统原理也是面试中比较重要的一部分，操作系统原理主要考察的是对进程线程等的理解，锁的管理，内存管理等知识">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190626010341.png">
-<meta property="og:updated_time" content="2019-06-25T17:30:03.086Z">
+<meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190713104140.png">
+<meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190713122234.png">
+<meta property="og:updated_time" content="2019-07-15T07:32:08.178Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="剑指offer面试题18">
-<meta name="twitter:description" content="要求： 题目要求：给定一个有序链表，比如1-2-3-4-4-5-5-6，去除其重复的Node，重复的Node全部删去，只要Single的哈哈 编程语言：Java 思考：看上去只是一个简单的链表的题，到底有啥玄机呢？其实需要注意三点：  第一，链表是有序的，所以重复的肯定在一块儿； 第二，重复的全部删除有点烦人，如果只留一个会很简单 第三，注意特殊情况，比如链表的节点全部为相同的数的时候">
-<meta name="twitter:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190626010341.png">
+<meta name="twitter:title" content="操作系统原理复习之线程进程">
+<meta name="twitter:description" content="操作系统原理也是面试中比较重要的一部分，操作系统原理主要考察的是对进程线程等的理解，锁的管理，内存管理等知识">
+<meta name="twitter:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190713104140.png">
   
     <link rel="alternative" href="/atom.xml" title="Andymon的二点五次元" type="application/atom+xml">
   
@@ -174,47 +175,102 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-剑指offer面试题18" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-操作系统原理复习" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      剑指offer面试题18
+      操作系统原理复习之线程进程
     </h1>
   
 
         
-        <a href="/2019/06/26/剑指offer面试题18/" class="archive-article-date">
-  	<time datetime="2019-06-25T16:58:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-26</time>
+        <a href="/2019/07/13/操作系统原理复习/" class="archive-article-date">
+  	<time datetime="2019-07-13T02:26:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>要求：</p>
-<p>题目要求：给定一个有序链表，比如1-2-3-4-4-5-5-6，去除其重复的Node，重复的Node全部删去，只要Single的哈哈</p>
-<p>编程语言：Java</p>
-<p>思考：看上去只是一个简单的链表的题，到底有啥玄机呢？其实需要注意三点：</p>
-<ul>
-<li>第一，链表是有序的，所以重复的肯定在一块儿；</li>
-<li>第二，重复的全部删除有点烦人，如果只留一个会很简单</li>
-<li>第三，注意特殊情况，比如链表的节点全部为相同的数的时候</li>
-</ul>
-<p><img src="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190626010341.png" alt></p>
+        <p>操作系统原理也是面试中比较重要的一部分，操作系统原理主要考察的是对进程线程等的理解，锁的管理，内存管理等知识</p>
+<p><img src="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190713104140.png" alt></p>
 <a id="more"></a>
 
-<h3 id="思路一：常规解法，利用链表的性质"><a href="#思路一：常规解法，利用链表的性质" class="headerlink" title="思路一：常规解法，利用链表的性质"></a>思路一：常规解法，利用链表的性质</h3><p>首先定义链表的ListNode这个类:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">        ListNode next = <span class="keyword">null</span>;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">ListNode</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.val = val;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h2><p>1、进程是<strong>资源分配</strong>的基本单位，线程是<strong>独立调度</strong>的基本单位</p>
+<p>2、一个进程可以有很多的线程，那些线程共享进程资源，但是线程不拥有资源，线程是访问隶属进程的资源</p>
+<p>3、在同一个进程中，线程切换不会引起进程切换，从一个进程中的线程切换到另一个进程中的线程，会引起进程切换</p>
+<p>4、线程间可以通过直接读写同一进程中的数据进行通信，但是进程通信需要借助 IPC。</p>
+<p>5、创建或者撤销进程，系统会为之分配或回收资源，比如内存、IO设备等，所付出的开销远大于线程。</p>
+<p>6、进程切换时，涉及当前执行进程CPU环境的保存以及新调度进程CPU环境的设置，而线程切换时只需要保存和设置少量寄存器内容，开销很小</p>
+<h2 id="进程状态的切换"><a href="#进程状态的切换" class="headerlink" title="进程状态的切换"></a>进程状态的切换</h2><p>进程一般有三种状态，ready、running、waiting</p>
+<p>其中ready和running可以互相转换，ready状态通过调度算法获得CPU执行的时间片，则进入running状态，而running状态的进程当CPU时间片执行完会重写进入ready状态，等待下一次调度。</p>
+<p>阻塞状态是缺少需要的资源从而从running状态转化过来，但是缺少的资源不包括CPU执行的时间，否则就转化为ready状态了。</p>
+<img src="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190713122234.png" width="50%" height="50%" align="center">
 
-<p>然后不多逼逼，直接上代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">deleteDuplication</span><span class="params">(ListNode pHead)</span></span>&#123;</span><br><span class="line">        ListNode pre = <span class="keyword">new</span> ListNode(-<span class="number">1</span>);<span class="comment">//这里定义了三个指针，有一个指针的next指向头指针，这样就很好避免比较node的值是否相同而要回溯到前一个节点</span></span><br><span class="line">        pre.next = pHead;</span><br><span class="line">        ListNode first = pHead;</span><br><span class="line">        ListNode last = pre;<span class="comment">//last节点先指向pre，因为先要进行first指针的校验，去掉前几个重复的，比如1-1-1-2-的情况</span></span><br><span class="line">        <span class="keyword">while</span> (first!=<span class="keyword">null</span>&amp;&amp;first.next!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="comment">//此处的思路就是，这个节点重复，直接再比较下一个，如果还重复继续</span></span><br><span class="line">            <span class="comment">//等到不重复了，将last的next指向first(此时first已经成为了first.next不重复了)</span></span><br><span class="line">            <span class="comment">//如果不重复的话，last和first依次进一步</span></span><br><span class="line">            <span class="keyword">if</span>(first.val==first.next.val)&#123;</span><br><span class="line">                <span class="keyword">int</span> val = first.val;<span class="comment">//此处拿到需要比较的值，在下面的while循环中与first.next值比较</span></span><br><span class="line">                <span class="keyword">while</span>(first!=<span class="keyword">null</span>&amp;&amp;first.val==val)&#123;</span><br><span class="line">                    first = first.next;</span><br><span class="line">                &#125;</span><br><span class="line">                last.next = first;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                last = first;</span><br><span class="line">                first = first.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre.next;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="思路二：还是需要一定的智商才能写出来的递归，哎，递归真得看智商和经验，反正先欣赏一下吧"><a href="#思路二：还是需要一定的智商才能写出来的递归，哎，递归真得看智商和经验，反正先欣赏一下吧" class="headerlink" title="思路二：还是需要一定的智商才能写出来的递归，哎，递归真得看智商和经验，反正先欣赏一下吧"></a>思路二：还是需要一定的智商才能写出来的递归，哎，递归真得看智商和经验，反正先欣赏一下吧</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">deleteDuplication</span><span class="params">(ListNode pHead)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(pHead==<span class="keyword">null</span>||pHead.next==<span class="keyword">null</span>)&#123;<span class="comment">//先决条件，预处理</span></span><br><span class="line">            <span class="keyword">return</span> pHead;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(pHead.val==pHead.next.val)&#123;</span><br><span class="line">            <span class="comment">//如果head和head.next相同，用一个Node指向head.next</span></span><br><span class="line">            <span class="comment">//用新生成的Node与head做对比，如果满足val相同，node继续递进，如果不相同，从那个node继续递归</span></span><br><span class="line">            ListNode pNode = pHead.next;</span><br><span class="line">            <span class="keyword">while</span> (pNode!=<span class="keyword">null</span>&amp;&amp;pNode.val==pHead.val)&#123;</span><br><span class="line">                pNode = pNode.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//这里还考虑到了最后几个都相同的情况，比如1-2-3-4-4-4这样子，这样递归最后会传入空值，而空值的递归结果为空，所以不会影响输出</span></span><br><span class="line">            <span class="keyword">return</span> deleteDuplication(pNode);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//如果不相同的话,直接将head.next递归，因为递归结束条件为head为null或者head.next为null，每次递归我们都把输入当作head，所以只剩最后一个的时候，递归结束</span></span><br><span class="line">            pHead.next = deleteDuplication(pHead.next);</span><br><span class="line">            <span class="keyword">return</span> pHead;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 
+<h2 id="进程调度算法"><a href="#进程调度算法" class="headerlink" title="进程调度算法"></a>进程调度算法</h2><h3 id="1、批处理系统"><a href="#1、批处理系统" class="headerlink" title="1、批处理系统"></a>1、批处理系统</h3><p>首先批处理系统没太多的用户操作，在该系统中，调度算法的目标就是<strong>保证吞吐量和周转时间</strong></p>
+<h4 id="1-1-先来先服务（非抢占式）FCFS"><a href="#1-1-先来先服务（非抢占式）FCFS" class="headerlink" title="1.1  先来先服务（非抢占式）FCFS"></a>1.1  先来先服务（非抢占式）FCFS</h4><p>按照请求的顺序进行调度。缺点是有利于长作业，短作业等待时间将会很长</p>
+<h4 id="1-2-短作业优先（非抢占式）SJF"><a href="#1-2-短作业优先（非抢占式）SJF" class="headerlink" title="1.2 短作业优先（非抢占式）SJF"></a>1.2 短作业优先（非抢占式）SJF</h4><p>按估计时间最短的顺序进行调度，缺点是长作业可能会饿死，因为短作业如果一直不停到来，长作业就没有执行的机会</p>
+<h4 id="1-3-最短剩余时间有限（抢占式）SRTN"><a href="#1-3-最短剩余时间有限（抢占式）SRTN" class="headerlink" title="1.3  最短剩余时间有限（抢占式）SRTN"></a>1.3  最短剩余时间有限（抢占式）SRTN</h4><p>当一个新的作业到达时，其整个运行时间与当前进程的剩余时间作比较。如果新的进程需要的时间更少，则挂起当前进程，运行新的进程。否则新的进程等待。</p>
+<h3 id="2、交互式系统"><a href="#2、交互式系统" class="headerlink" title="2、交互式系统"></a>2、交互式系统</h3><p>交互式系统的目标是进行<strong>快速的响应</strong></p>
+<h4 id="2-1-时间片轮转"><a href="#2-1-时间片轮转" class="headerlink" title="2.1 时间片轮转"></a>2.1 时间片轮转</h4><p>将所有就绪进程按 FCFS 的原则排成一个队列，每次调度时，把 CPU 时间分配给队首进程，该进程可以执行一个时间片。当时间片用完时，由计时器发出时钟中断，调度程序便停止该进程的执行，并将它送往就绪队列的末尾，同时继续把 CPU 时间分配给队首的进程。</p>
+<p>缺点：如果时间片太小，会导致进程切换得太频繁，在进程切换上就会花过多时间；如果时间片过长，则无法及时响应。</p>
+<h4 id="2-2-优先级调度"><a href="#2-2-优先级调度" class="headerlink" title="2.2 优先级调度"></a>2.2 优先级调度</h4><p>为每个进程分配一个优先级，按优先级进行调度。可以随着时间的推移增加等待进程的优先级</p>
+<h4 id="2-3-多级反馈队列（参考这篇）"><a href="#2-3-多级反馈队列（参考这篇）" class="headerlink" title="2.3 多级反馈队列（参考这篇）"></a>2.3 多级反馈队列（<a href="https://www.cnblogs.com/Roni-i/p/10291822.html" target="_blank" rel="noopener">参考这篇</a>）</h4><p>多级队列是为这种需要连续执行多个时间片的进程考虑，它设置了多个队列，每个队列时间片大小都不同，例如 1,2,4,8,..。进程在第一个队列没执行完，就会被移到下一个队列。这种方式下，之前的进程只需要交换 7 次。</p>
+<p>每个队列优先权也不同，最上面的优先权最高。因此只有上一个队列没有进程在排队，才能调度当前队列上的进程。</p>
+<p>可以将这种调度算法看成是时间片轮转调度算法和优先级调度算法的结合。</p>
+<h3 id="3、实时系统"><a href="#3、实时系统" class="headerlink" title="3、实时系统"></a>3、实时系统</h3><p>实时系统要求一个请求在一个确定时间内得到响应。</p>
+<p>分为硬实时和软实时，前者必须满足绝对的截止时间，后者可以容忍一定的超时。</p>
+<h2 id="进程同步"><a href="#进程同步" class="headerlink" title="进程同步"></a>进程同步</h2><h3 id="1、临界资源"><a href="#1、临界资源" class="headerlink" title="1、临界资源"></a>1、临界资源</h3><p>临界资源不要当作“临界”来理解，临界资源可以这么理解：需要互斥访问的资源，其中包括软件或者硬件资源。比如打印机、刻录机等一次只能有一个设备去访问它。</p>
+<h3 id="2、临界区"><a href="#2、临界区" class="headerlink" title="2、临界区"></a>2、临界区</h3><p>临界区就是访问临界资源的代码。但是由于临界资源的访问是互斥的，所以进访问临界资源需要检查。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">|entry section|//进入区，如果进程被访问则等待</span><br><span class="line">critical section;//临界区</span><br><span class="line">|exit section|//退出区，为临界资源设置可以访问的标志</span><br><span class="line">remainder section;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、同步机制需要遵循的规则"><a href="#3、同步机制需要遵循的规则" class="headerlink" title="3、同步机制需要遵循的规则"></a>3、同步机制需要遵循的规则</h3><p>空闲让进、忙则等待、有限等待（对要求访问临界资源的进程,应保证在有限时间内能进入自己的临界区, 以免陷入“死等”状态。）、让权等待（当进程不能进入自己的临界区时,应立即释放处理机,以免进程陷入“忙 等”状态）</p>
+<h3 id="4、信号量"><a href="#4、信号量" class="headerlink" title="4、信号量"></a>4、信号量</h3><p>信号量在同步中可以把它理解为一个同步的标记，可以对其进行up或者down的操作，也就是p和v操作。</p>
+<ul>
+<li><strong>down</strong> : 如果信号量大于 0 ，执行 -1 操作；如果信号量等于 0，进程睡眠，等待信号量大于 0；</li>
+<li><strong>up</strong> ：对信号量执行 +1 操作，唤醒睡眠的进程让其完成 down 操作。</li>
+</ul>
+<p>如果信号量的取值只能为 0 或者 1，那么就成为了 <strong>互斥量（Mutex）</strong> ，0 表示临界区已经加锁，1 表示临界区解锁。</p>
+<p>用信号量可以实现常见的生产者消费者模式。</p>
+<h3 id="5、管程"><a href="#5、管程" class="headerlink" title="5、管程"></a>5、管程</h3><p>使用信号量机制实现的生产者消费者问题需要客户端代码做很多控制，而管程把控制的代码独立出来，不仅不容易出错，也使得客户端代码调用更容易。</p>
+<h4 id="5-1-组成"><a href="#5-1-组成" class="headerlink" title="5.1 组成"></a>5.1 组成</h4><ul>
+<li>一个锁<ul>
+<li>控制管程代码的互斥访问</li>
+</ul>
+</li>
+<li>0个或多个条件变量<ul>
+<li>0个等同于临界区</li>
+<li>管理共享数据的并发访问</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-2-条件变量"><a href="#5-2-条件变量" class="headerlink" title="5.2 条件变量"></a>5.2 条件变量</h4><ul>
+<li>条件变量是管程内的等待机制 </li>
+<li>进入管程的线程因资源被占用而进入等待状态</li>
+<li>每个条件变量表示一种等待原因，对应一个等待队列</li>
+</ul>
+<ul>
+<li>Wait（）操作</li>
+<li>将自己阻塞在等待队列中</li>
+<li>唤醒一个等待着或释放管程的互斥访问</li>
+</ul>
+<ul>
+<li>Signal()操作 </li>
+<li>将等待队列中的一个线程唤醒</li>
+<li>如果等待队列为空，则等同空操作</li>
+</ul>
+<h2 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h2><p>进程同步和进程通信不同，他们的区别在于：</p>
+<ul>
+<li>进程同步：控制多个进程按一定顺序执行；</li>
+<li>进程通信：进程间传输信息。</li>
+</ul>
+<p>进程通信是一种手段，而进程同步是一种目的。也可以说，为了能够达到进程同步的目的，需要让进程进行通信，传输一些进程同步所需要的信息。</p>
+<h3 id="1、管道"><a href="#1、管道" class="headerlink" title="1、管道"></a>1、管道</h3><h3 id="2、FIFO"><a href="#2、FIFO" class="headerlink" title="2、FIFO"></a>2、FIFO</h3><h3 id="3、消息队列"><a href="#3、消息队列" class="headerlink" title="3、消息队列"></a>3、消息队列</h3><h3 id="4、信号量-1"><a href="#4、信号量-1" class="headerlink" title="4、信号量"></a>4、信号量</h3><h3 id="5、共享存储"><a href="#5、共享存储" class="headerlink" title="5、共享存储"></a>5、共享存储</h3><h3 id="6、套接字"><a href="#6、套接字" class="headerlink" title="6、套接字"></a>6、套接字</h3>
       
 
       
@@ -248,7 +304,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">编程题</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
         		</li>
       		
 		</ul>
@@ -304,7 +360,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/26/剑指offer面试题18/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/13/操作系统原理复习/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -318,18 +374,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/06/26/剑指offer面试题21/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          剑指offer面试题21
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/06/25/剑指offer16/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">剑指offer面试题16</div>
+    <a href="/2019/07/11/LinkedHashMap的源码分析/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">LinkedHashMap的源码分析（基于jdk8）</div>
       <i class="icon-circle-right"></i>
     </a>
   

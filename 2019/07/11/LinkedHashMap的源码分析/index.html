@@ -6,22 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>剑指offer面试题18 | Andymon的二点五次元</title>
+  <title>LinkedHashMap的源码分析（基于jdk8） | Andymon的二点五次元</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="要求： 题目要求：给定一个有序链表，比如1-2-3-4-4-5-5-6，去除其重复的Node，重复的Node全部删去，只要Single的哈哈 编程语言：Java 思考：看上去只是一个简单的链表的题，到底有啥玄机呢？其实需要注意三点：  第一，链表是有序的，所以重复的肯定在一块儿； 第二，重复的全部删除有点烦人，如果只留一个会很简单 第三，注意特殊情况，比如链表的节点全部为相同的数的时候">
-<meta name="keywords" content="编程题">
+  <meta name="description" content="虽然在面试过程中很少会问到LinkedHashMap的实现细节，更多的好像是介绍LinkedHashMap内部维护了一个双向链表来维护数据的插入顺序，以及LinkedHashMap的LRU机制，但是了解它总不是一件坏事，万一呢对吧？">
+<meta name="keywords" content="技术">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指offer面试题18">
-<meta property="og:url" content="http://yoursite.com/2019/06/26/剑指offer面试题18/index.html">
+<meta property="og:title" content="LinkedHashMap的源码分析（基于jdk8）">
+<meta property="og:url" content="http://yoursite.com/2019/07/11/LinkedHashMap的源码分析/index.html">
 <meta property="og:site_name" content="Andymon的二点五次元">
-<meta property="og:description" content="要求： 题目要求：给定一个有序链表，比如1-2-3-4-4-5-5-6，去除其重复的Node，重复的Node全部删去，只要Single的哈哈 编程语言：Java 思考：看上去只是一个简单的链表的题，到底有啥玄机呢？其实需要注意三点：  第一，链表是有序的，所以重复的肯定在一块儿； 第二，重复的全部删除有点烦人，如果只留一个会很简单 第三，注意特殊情况，比如链表的节点全部为相同的数的时候">
+<meta property="og:description" content="虽然在面试过程中很少会问到LinkedHashMap的实现细节，更多的好像是介绍LinkedHashMap内部维护了一个双向链表来维护数据的插入顺序，以及LinkedHashMap的LRU机制，但是了解它总不是一件坏事，万一呢对吧？">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190626010341.png">
-<meta property="og:updated_time" content="2019-06-25T17:30:03.086Z">
+<meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190711100646.png">
+<meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190711102638.png">
+<meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190711104911.png">
+<meta property="og:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190711165255.png">
+<meta property="og:updated_time" content="2019-07-11T09:20:02.999Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="剑指offer面试题18">
-<meta name="twitter:description" content="要求： 题目要求：给定一个有序链表，比如1-2-3-4-4-5-5-6，去除其重复的Node，重复的Node全部删去，只要Single的哈哈 编程语言：Java 思考：看上去只是一个简单的链表的题，到底有啥玄机呢？其实需要注意三点：  第一，链表是有序的，所以重复的肯定在一块儿； 第二，重复的全部删除有点烦人，如果只留一个会很简单 第三，注意特殊情况，比如链表的节点全部为相同的数的时候">
-<meta name="twitter:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190626010341.png">
+<meta name="twitter:title" content="LinkedHashMap的源码分析（基于jdk8）">
+<meta name="twitter:description" content="虽然在面试过程中很少会问到LinkedHashMap的实现细节，更多的好像是介绍LinkedHashMap内部维护了一个双向链表来维护数据的插入顺序，以及LinkedHashMap的LRU机制，但是了解它总不是一件坏事，万一呢对吧？">
+<meta name="twitter:image" content="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190711100646.png">
   
     <link rel="alternative" href="/atom.xml" title="Andymon的二点五次元" type="application/atom+xml">
   
@@ -174,47 +177,61 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-剑指offer面试题18" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-LinkedHashMap的源码分析" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      剑指offer面试题18
+      LinkedHashMap的源码分析（基于jdk8）
     </h1>
   
 
         
-        <a href="/2019/06/26/剑指offer面试题18/" class="archive-article-date">
-  	<time datetime="2019-06-25T16:58:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-26</time>
+        <a href="/2019/07/11/LinkedHashMap的源码分析/" class="archive-article-date">
+  	<time datetime="2019-07-11T01:56:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>要求：</p>
-<p>题目要求：给定一个有序链表，比如1-2-3-4-4-5-5-6，去除其重复的Node，重复的Node全部删去，只要Single的哈哈</p>
-<p>编程语言：Java</p>
-<p>思考：看上去只是一个简单的链表的题，到底有啥玄机呢？其实需要注意三点：</p>
-<ul>
-<li>第一，链表是有序的，所以重复的肯定在一块儿；</li>
-<li>第二，重复的全部删除有点烦人，如果只留一个会很简单</li>
-<li>第三，注意特殊情况，比如链表的节点全部为相同的数的时候</li>
-</ul>
-<p><img src="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190626010341.png" alt></p>
+        <p>虽然在面试过程中很少会问到LinkedHashMap的实现细节，更多的好像是介绍LinkedHashMap内部维护了一个双向链表来维护数据的插入顺序，以及LinkedHashMap的LRU机制，但是了解它总不是一件坏事，万一呢对吧？</p>
+<img src="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190711100646.png" width="30%" height="30%" align="center">
+
 <a id="more"></a>
 
-<h3 id="思路一：常规解法，利用链表的性质"><a href="#思路一：常规解法，利用链表的性质" class="headerlink" title="思路一：常规解法，利用链表的性质"></a>思路一：常规解法，利用链表的性质</h3><p>首先定义链表的ListNode这个类:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">        ListNode next = <span class="keyword">null</span>;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">ListNode</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.val = val;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://juejin.im/post/5ace2bde6fb9a028e25deca8" target="_blank" rel="noopener">此篇文章主要参考掘金的一位大佬写的</a></p>
+<h3 id="LinkedHashMap和HashMap的关系"><a href="#LinkedHashMap和HashMap的关系" class="headerlink" title="LinkedHashMap和HashMap的关系"></a>LinkedHashMap和HashMap的关系</h3><p>首先不得不否认，很少会有人直接问你LinkedHashMap，问你HashMap的人会多一些。LinkedHashMap很多就是顺带问的，但是LinkedHashMap在某些情况还是很有使用场景的。给HashMap维护顺序也不是不可能的需求，比如使用缓存的时候这个数据结构也是不得不考虑的，下图是HashMap和LinkedHashMap的联系：</p>
+<img src="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190711102638.png" width="50%" height="50%" align="center">
 
-<p>然后不多逼逼，直接上代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">deleteDuplication</span><span class="params">(ListNode pHead)</span></span>&#123;</span><br><span class="line">        ListNode pre = <span class="keyword">new</span> ListNode(-<span class="number">1</span>);<span class="comment">//这里定义了三个指针，有一个指针的next指向头指针，这样就很好避免比较node的值是否相同而要回溯到前一个节点</span></span><br><span class="line">        pre.next = pHead;</span><br><span class="line">        ListNode first = pHead;</span><br><span class="line">        ListNode last = pre;<span class="comment">//last节点先指向pre，因为先要进行first指针的校验，去掉前几个重复的，比如1-1-1-2-的情况</span></span><br><span class="line">        <span class="keyword">while</span> (first!=<span class="keyword">null</span>&amp;&amp;first.next!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="comment">//此处的思路就是，这个节点重复，直接再比较下一个，如果还重复继续</span></span><br><span class="line">            <span class="comment">//等到不重复了，将last的next指向first(此时first已经成为了first.next不重复了)</span></span><br><span class="line">            <span class="comment">//如果不重复的话，last和first依次进一步</span></span><br><span class="line">            <span class="keyword">if</span>(first.val==first.next.val)&#123;</span><br><span class="line">                <span class="keyword">int</span> val = first.val;<span class="comment">//此处拿到需要比较的值，在下面的while循环中与first.next值比较</span></span><br><span class="line">                <span class="keyword">while</span>(first!=<span class="keyword">null</span>&amp;&amp;first.val==val)&#123;</span><br><span class="line">                    first = first.next;</span><br><span class="line">                &#125;</span><br><span class="line">                last.next = first;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                last = first;</span><br><span class="line">                first = first.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre.next;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>LinkedHashMap继承HashMap，实现Map借口：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedHashMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">HashMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="思路二：还是需要一定的智商才能写出来的递归，哎，递归真得看智商和经验，反正先欣赏一下吧"><a href="#思路二：还是需要一定的智商才能写出来的递归，哎，递归真得看智商和经验，反正先欣赏一下吧" class="headerlink" title="思路二：还是需要一定的智商才能写出来的递归，哎，递归真得看智商和经验，反正先欣赏一下吧"></a>思路二：还是需要一定的智商才能写出来的递归，哎，递归真得看智商和经验，反正先欣赏一下吧</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">deleteDuplication</span><span class="params">(ListNode pHead)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(pHead==<span class="keyword">null</span>||pHead.next==<span class="keyword">null</span>)&#123;<span class="comment">//先决条件，预处理</span></span><br><span class="line">            <span class="keyword">return</span> pHead;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(pHead.val==pHead.next.val)&#123;</span><br><span class="line">            <span class="comment">//如果head和head.next相同，用一个Node指向head.next</span></span><br><span class="line">            <span class="comment">//用新生成的Node与head做对比，如果满足val相同，node继续递进，如果不相同，从那个node继续递归</span></span><br><span class="line">            ListNode pNode = pHead.next;</span><br><span class="line">            <span class="keyword">while</span> (pNode!=<span class="keyword">null</span>&amp;&amp;pNode.val==pHead.val)&#123;</span><br><span class="line">                pNode = pNode.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//这里还考虑到了最后几个都相同的情况，比如1-2-3-4-4-4这样子，这样递归最后会传入空值，而空值的递归结果为空，所以不会影响输出</span></span><br><span class="line">            <span class="keyword">return</span> deleteDuplication(pNode);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//如果不相同的话,直接将head.next递归，因为递归结束条件为head为null或者head.next为null，每次递归我们都把输入当作head，所以只剩最后一个的时候，递归结束</span></span><br><span class="line">            pHead.next = deleteDuplication(pHead.next);</span><br><span class="line">            <span class="keyword">return</span> pHead;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="LinkedHashMap双向链表的原理"><a href="#LinkedHashMap双向链表的原理" class="headerlink" title="LinkedHashMap双向链表的原理"></a>LinkedHashMap双向链表的原理</h3><p>从下图可以看到，红黄指针分别指向前节点和后节点，根据插入顺序顺便还维护了链表。</p>
+<blockquote>
+<p>假设图片中红黄箭头代表元素添加顺序，蓝箭头代表单链表各个元素的存储顺序。head 表示双向链表头部，tail 代表双向链表尾部</p>
+</blockquote>
+<img src="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190711104911.png" width="40%" height="40%" align="center">
 
+<p>从LinkedHashMap的Entry的源码也可以看出：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">HashMap</span>.<span class="title">Node</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">        Entry&lt;K,V&gt; before, after;<span class="comment">//before和after指针维护双向链表</span></span><br><span class="line">        Entry(<span class="keyword">int</span> hash, K key, V value, Node&lt;K,V&gt; next) &#123;</span><br><span class="line">            <span class="keyword">super</span>(hash, key, value, next);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="LinkedHashMap的put方法："><a href="#LinkedHashMap的put方法：" class="headerlink" title="LinkedHashMap的put方法："></a>LinkedHashMap的put方法：</h3><p>在LinkedHashMap中是没有put方法的，所以可以看出，LinkedHashMap和其父类HashMap的put方法一样，其父类的put方法如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">   <span class="function"><span class="keyword">public</span> V <span class="title">put</span><span class="params">(K key, V value)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> putVal(hash(key), key, value, <span class="keyword">false</span>, <span class="keyword">true</span>);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">final</span> V <span class="title">putVal</span><span class="params">(<span class="keyword">int</span> hash, K key, V value, <span class="keyword">boolean</span> onlyIfAbsent,</span></span></span><br><span class="line"><span class="function"><span class="params">                  <span class="keyword">boolean</span> evict)</span> </span>&#123;</span><br><span class="line">       Node&lt;K,V&gt;[] tab; Node&lt;K,V&gt; p; <span class="keyword">int</span> n, i;     <span class="comment">//tab[]为数组，p是每个桶</span></span><br><span class="line">①      <span class="keyword">if</span> ((tab = table) == <span class="keyword">null</span> || (n = tab.length) == <span class="number">0</span>) <span class="comment">//第一步，table为空，则调用resize()函数创建一个</span></span><br><span class="line">           n = (tab = resize()).length;</span><br><span class="line">②      <span class="keyword">if</span> ((p = tab[i = (n - <span class="number">1</span>) &amp; hash]) == <span class="keyword">null</span>)   <span class="comment">//第二步，计算元素所要储存的位置index,并对null做出处理</span></span><br><span class="line">           <span class="comment">//注意这里，如果tab[i]==null，说明这个位置上没有元素，这个时候就创建一个新的Node元素</span></span><br><span class="line">           tab[i] = newNode(hash, key, value, <span class="keyword">null</span>);</span><br><span class="line">       <span class="keyword">else</span> &#123;  <span class="comment">//else,否则，也就是，这个要添加的位置上面已经有元素了，也就是发生了碰撞。这个时候就要具体情况分</span></span><br><span class="line">               <span class="comment">//类讨论：1.key值相同，直接覆盖 2.链表已经超过了8位，变成了红黑树 3.链表是正常的链表</span></span><br><span class="line">           Node&lt;K,V&gt; e; K k;</span><br><span class="line">          <span class="keyword">if</span> (p.hash == hash &amp;&amp;            <span class="comment">//如果节点key存在，则覆盖原来位置的key</span></span><br><span class="line">               ((k = p.key) == key || (key != <span class="keyword">null</span> &amp;&amp; key.equals(k))))</span><br><span class="line">               e = p;      </span><br><span class="line"> ③         <span class="keyword">else</span> <span class="keyword">if</span> (p <span class="keyword">instanceof</span> TreeNode)                 <span class="comment">//第三步，判断该链是否为红黑树</span></span><br><span class="line">               e = ((TreeNode&lt;K,V&gt;)p).putTreeVal(<span class="keyword">this</span>, tab, hash, key, value);</span><br><span class="line">           <span class="keyword">else</span> &#123;</span><br><span class="line">               <span class="keyword">for</span> (<span class="keyword">int</span> binCount = <span class="number">0</span>; ; ++binCount) &#123;</span><br><span class="line">                   <span class="keyword">if</span> ((e = p.next) == <span class="keyword">null</span>) &#123;</span><br><span class="line">                       p.next = newNode(hash, key, value, <span class="keyword">null</span>);</span><br><span class="line">                       <span class="comment">//链表长度大于8转换为红黑树</span></span><br><span class="line">                       <span class="keyword">if</span> (binCount &gt;= TREEIFY_THRESHOLD - <span class="number">1</span>) <span class="comment">// -1 for 1st</span></span><br><span class="line">                           treeifyBin(tab, hash);</span><br><span class="line">                       <span class="keyword">break</span>;</span><br><span class="line">                   &#125;</span><br><span class="line">                   <span class="comment">//如果节点key存在，则覆盖原来位置的key，同时将原来位置的元素，沿着链表向后移一位</span></span><br><span class="line">                   <span class="keyword">if</span> (e.hash == hash &amp;&amp;</span><br><span class="line">                       ((k = e.key) == key || (key != <span class="keyword">null</span> &amp;&amp; key.equals(k))))</span><br><span class="line">                       <span class="keyword">break</span>;</span><br><span class="line">                   p = e;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">if</span> (e != <span class="keyword">null</span>) &#123; <span class="comment">// existing mapping for key</span></span><br><span class="line">               V oldValue = e.value;</span><br><span class="line">               <span class="keyword">if</span> (!onlyIfAbsent || oldValue == <span class="keyword">null</span>)</span><br><span class="line">                   e.value = value;</span><br><span class="line">               afterNodeAccess(e);</span><br><span class="line">               <span class="keyword">return</span> oldValue;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       ++modCount;</span><br><span class="line">       <span class="keyword">if</span> (++size &gt; threshold)</span><br><span class="line"> ④         resize();                                       <span class="comment">//第四步：超过最大容量限制，扩容</span></span><br><span class="line">       afterNodeInsertion(evict);</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>虽然这里的put方法代码没改，但是从上面可以看出，当往一个桶添加元素时，这个桶的该位置无论有没有元素（table[ i]无论是不是空），都会调用一个newNode方法，而在LinkedHashMap里面，newNode方法是重写过的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Node&lt;K,V&gt; <span class="title">newNode</span><span class="params">(<span class="keyword">int</span> hash, K key, V value, Node&lt;K,V&gt; e)</span> </span>&#123;</span><br><span class="line">        LinkedHashMap.Entry&lt;K,V&gt; p =</span><br><span class="line">            <span class="keyword">new</span> LinkedHashMap.Entry&lt;K,V&gt;(hash, key, value, e);</span><br><span class="line">        linkNodeLast(p);</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">// 设置tail、head、before、after等指针</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">linkNodeLast</span><span class="params">(LinkedHashMap.Entry&lt;K,V&gt; p)</span> </span>&#123;</span><br><span class="line">        LinkedHashMap.Entry&lt;K,V&gt; last = tail;</span><br><span class="line">        tail = p;</span><br><span class="line">        <span class="keyword">if</span> (last == <span class="keyword">null</span>)</span><br><span class="line">            head = p;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            p.before = last;</span><br><span class="line">            last.after = p;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>其次在LinkedHashMap的代码里面，确实定义了双向链表头尾相关的指针：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 该引用始终指向双向链表的头部</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">transient</span> LinkedHashMap.Entry&lt;K,V&gt; head;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 该引用始终指向双向链表的尾部</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">transient</span> LinkedHashMap.Entry&lt;K,V&gt; tail;</span><br></pre></td></tr></table></figure>
+
+<p>下面是插入的步骤：</p>
+<img src="https://andymon-1258890573.cos.ap-beijing.myqcloud.com/20190711165255.png" height="50%" width="50%" align="center">
+
+<p><code>LinkedHashMap</code> 链表创建步骤，可用上图几个步骤来描述，蓝色部分是 <code>HashMap</code> 的方法，而橙色部分为 <code>LinkedHashMap</code> 独有的方法。</p>
+<h3 id="删除节点"><a href="#删除节点" class="headerlink" title="删除节点"></a>删除节点</h3>
       
 
       
@@ -248,7 +265,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">编程题</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
         		</li>
       		
 		</ul>
@@ -304,7 +321,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/26/剑指offer面试题18/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/11/LinkedHashMap的源码分析/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -318,18 +335,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/06/26/剑指offer面试题21/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/07/13/操作系统原理复习/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          剑指offer面试题21
+          操作系统原理复习之线程进程
         
       </div>
     </a>
   
   
-    <a href="/2019/06/25/剑指offer16/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">剑指offer面试题16</div>
+    <a href="/2019/07/07/Java集合复习/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java集合复习</div>
       <i class="icon-circle-right"></i>
     </a>
   
